@@ -89,7 +89,7 @@ $result2 = mysqli_query($db,$sql2);
 
 if($result === TRUE)
 { 
-     if($result2->num_row != 0)
+     if($result_cnt = mysqli_num_rows($result2) != 0)
      {
           $row = $result2->fetch_assoc();
           $eventid = $row["id"];
