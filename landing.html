@@ -11,10 +11,10 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" type="text/css" rel="stylesheet">
 
 		<title>uCANfinish</title>
-
+		
 		<!-- Plugins -->
-
-
+		
+		
 		<style>
 		.map-responsive{
 			overflow:hidden;
@@ -28,7 +28,7 @@
 			height:100%;
 			width:100%;
 			position:absolute;
-		}
+		}	
 
 		.card-header .fa {
 		  transition: .3s transform ease-in-out;
@@ -38,7 +38,7 @@
 		}
 		</style>
 	</head>
-
+	
 	<body>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -46,9 +46,11 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<script src="controls.js"></script>
-
+		
 		<main class="container-fluid" style="padding-bottom:60px;">
 			<div class="tab-content">
+			
+				<!-- Classes tab -->
 				<div class="tab-pane container-fluid" id="classes">
 					<div class="row mt-2">
 						<div class="col text-center">
@@ -58,6 +60,8 @@
 							<button class="btn w-100 font-weight-bold">School's Out!</button>
 						</div>
 					</div>
+					
+					<!-- Class cards contained here -->
 					<div class="card-deck">
 						<div class="card mt-3" id="class1">
 							<div class="card-header">
@@ -156,7 +160,8 @@
 							</div>
 						</div>
 					</div>
-
+					
+					<!-- Pop-up class info editor -->
 					<div class="modal fade" id="classForm">
 						<div class="modal-dialog" id="classModal">
 							<div class="modal-content">
@@ -166,7 +171,7 @@
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
-
+								
 								<div class="modal-body mx-2">
 									<div class="form-row">
 										<div class="form-group col">
@@ -174,7 +179,7 @@
 											<input type="text" id="courseTitle" class="form-control">
 										</div>
 									</div>
-
+									
 									<div class="form-group">
 										<label for="meetPattern">Meeting Pattern</label>
 										<select id="meetPattern" class="form-control">
@@ -187,9 +192,9 @@
 											<option>W</option>
 											<option>Th</option>
 											<option>F</option>
-										</select>
+										</select>						
 									</div>
-
+									
 									<div class="form-row">
 										<div class="form-group col">
 											<label for="meetTime">Start Time</label>
@@ -220,7 +225,7 @@
 												<option>6:30 PM</option>
 												<option>7:00 PM</option>
 												<option>7:30 PM</option>
-											</select>
+											</select>		
 										</div>
 
 										<div class="form-group col">
@@ -231,10 +236,10 @@
 												<option>1hr 15m</option>
 												<option>1hr 50m</option>
 												<option>2hr 50m</option>
-											</select>
+											</select>		
 										</div>
 									</div>
-
+									
 									<div class="form-row">
 										<div class="form-group col">
 											<label for="building">Building</label>
@@ -250,7 +255,7 @@
 												<option>MSB</option>
 												<option>PSB</option>
 												<option>CREOL</option>
-											</select>
+											</select>		
 										</div>
 
 										<div class="form-group col">
@@ -259,7 +264,7 @@
 										</div>
 									</div>
 								</div>
-
+								
 								<div class="modal-footer d-flex justify-content-center" onclick="saveClick();">
 									<button class="btn btn-dark w-25">Save</button>
 								</div>
@@ -267,68 +272,142 @@
 						</div>
 					</div>
 				</div>
-
+				
+				<!-- Home page -->
 				<div class="tab-pane container-fluid active" id="homepage">
 					<h4 class="mt-3"><u>T O D A Y</u></h4>
 					<div class="font-weight-bold text-center" style="font-size:16px;">6:00 PM</div>
-					<div class="card mb-3" id="homeevent1">
+					<div class="card mb-3 text-center" id="homeevent1">
 						<div class="card-header">
 							<a data-toggle="collapse" data-target="#map1collapse" style="font-size:14px;">
 								<i class="fa fa-angle-down float-right"></i>
 								Computer Communication Networks
 							</a>
 						</div>
+						<div id="eventreminder1">No reminders</div>
 						<div id="map1collapse" class="collapse show">
-							<div class="card-body mt-2 mb-2">
-								<div class="row">
-									<div class="col text-center"><i class="fa fa-walking"></i></div>
-									<div class="col text-center"><i class="fa fa-bicycle"></i></div>
-									<div class="col text-center"><i class="fa fa-car"></i></div>
-									<div class="col text-center"><i class="fa fa-bus"></i></div>
-								</div>
-								<div class="row">
-									<div class="col text-center">1hr 15m</div>
-									<div class="col text-center">30m</div>
-									<div class="col text-center">10m</div>
-									<div class="col text-center">15m</div>
-								</div>
-								<div class="map-responsive">
-									<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1472.7800365680348!2d-81.20016411373796!3d28.603346670870994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e7685b91a22a8b%3A0x54fb2f6239af137a!2sClassroom%20Building%201%2C%2012601%20Aquarius%20Agora%20Dr%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6037185!2d-81.20052009999999!4m5!1s0x88e7685c9affd389%3A0xa46ed85409eff418!2sUCF%20Engineering%20Building%20II%20(ENG2)%2C%20Pegasus%20Drive%2C%20Orlando%2C%20FL!3m2!1d28.6015376!2d-81.1983784!5e0!3m2!1sen!2sus!4v1575677246783!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+							<div class="card-body" style="padding-top:0; padding-left:5px; padding-right:5px">
+								<div class="tab-pane container-fluid" style="padding-left:0;padding-right:0" id="event1maps">
+									<ul class="nav nav-tabs nav-justified">
+										<li class="nav-item">
+											<a class="nav-link active" data-toggle="tab" href="#eventwalk1">
+												<div><i class="fa fa-walking"></i></div>
+												<div style="font-size:12px">1h 38m</div>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" data-toggle="tab" href="#eventbike1">
+												<div><i class="fa fa-bicycle"></i></div>
+												<div style="font-size:12px">25m</div>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" data-toggle="tab" href="#eventcar1">
+												<div><i class="fa fa-car"></i></div>
+												<div style="font-size:12px">9m</div>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" data-toggle="tab" href="#eventbus1">
+												<div><i class="fa fa-bus"></i></div>
+												<div style="font-size:12px">-</div>
+											</a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div id="eventwalk1" class="tab-pane container active">
+											<div class="map-responsive">
+												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.544417952166!2d-81.22985002940365!3d28.57147272627009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749808082!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+											</div>
+										</div>										
+										<div id="eventbike1" class="tab-pane container">
+											<div class="map-responsive">
+												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d56061.54538564143!2d-81.2473803470514!3d28.57436915472536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e1!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749587312!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+											</div>
+										</div>
+										<div id="event1car1" class="tab-pane container">
+											<div class="map-responsive">
+												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.5408744606!2d-81.22531407940366!3d28.571486026269753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749727669!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+											</div>
+										</div>
+										<div id="eventbus1" class="tab-pane container">
+											<div class="map-responsive">
+												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d112126.18146221379!2d-81.27764254925123!3d28.571469169580343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749517026!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+											</div>
+										</div>	
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-
-					<div class="font-weight-bold text-center" style="font-size:16px;">11:30 PM</div>
-					<div class="card mb-3" id="homeevent2">
+					
+					<div class="font-weight-bold text-center" style="font-size:16px;">11:30 PM</div>					
+					<div class="card mb-3 text-center" id="homeevent2">
 						<div class="card-header">
 							<a data-toggle="collapse" data-target="#map2collapse" style="font-size:14px;">
 								<i class="fa fa-angle-down float-right"></i>
-								Signal Analysis & Analog Communication
+								Processes of Object-Oriented Software
 							</a>
 						</div>
+						<div id="eventreminder2">No reminders</div>
 						<div id="map2collapse" class="collapse">
-							<div class="card-body mt-2 mb-2">
-								<div class="row">
-									<div class="col text-center"><i class="fa fa-walking"></i></div>
-									<div class="col text-center"><i class="fa fa-bicycle"></i></div>
-									<div class="col text-center"><i class="fa fa-car"></i></div>
-									<div class="col text-center"><i class="fa fa-bus"></i></div>
-								</div>
-								<div class="row">
-									<div class="col text-center">1hr 15m</div>
-									<div class="col text-center">30m</div>
-									<div class="col text-center">10m</div>
-									<div class="col text-center">15m</div>
-								</div>
-								<div class="map-responsive">
-									<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1472.7800365680348!2d-81.20016411373796!3d28.603346670870994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e7685b91a22a8b%3A0x54fb2f6239af137a!2sClassroom%20Building%201%2C%2012601%20Aquarius%20Agora%20Dr%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6037185!2d-81.20052009999999!4m5!1s0x88e7685c9affd389%3A0xa46ed85409eff418!2sUCF%20Engineering%20Building%20II%20(ENG2)%2C%20Pegasus%20Drive%2C%20Orlando%2C%20FL!3m2!1d28.6015376!2d-81.1983784!5e0!3m2!1sen!2sus!4v1575677246783!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+							<div class="card-body" style="padding-top:0; padding-left:5px; padding-right:5px">
+								<div class="tab-pane container-fluid" style="padding-left:0;padding-right:0" id="event2maps">
+									<ul class="nav nav-tabs nav-justified">
+										<li class="nav-item">
+											<a class="nav-link active" data-toggle="tab" href="#eventwalk2">
+												<div><i class="fa fa-walking"></i></div>
+												<div style="font-size:12px">1h 38m</div>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" data-toggle="tab" href="#eventbike2">
+												<div><i class="fa fa-bicycle"></i></div>
+												<div style="font-size:12px">25m</div>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" data-toggle="tab" href="#eventcar2">
+												<div><i class="fa fa-car"></i></div>
+												<div style="font-size:12px">9m</div>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" data-toggle="tab" href="#eventbus2">
+												<div><i class="fa fa-bus"></i></div>
+												<div style="font-size:12px">-</div>
+											</a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div id="eventwalk2" class="tab-pane container active">
+											<div class="map-responsive">
+												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.544417952166!2d-81.22985002940365!3d28.57147272627009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749808082!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+											</div>
+										</div>										
+										<div id="eventbike2" class="tab-pane container">
+											<div class="map-responsive">
+												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d56061.54538564143!2d-81.2473803470514!3d28.57436915472536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e1!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749587312!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+											</div>
+										</div>
+										<div id="event1car2" class="tab-pane container">
+											<div class="map-responsive">
+												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.5408744606!2d-81.22531407940366!3d28.571486026269753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749727669!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+											</div>
+										</div>
+										<div id="eventbus2" class="tab-pane container">
+											<div class="map-responsive">
+												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d112126.18146221379!2d-81.27764254925123!3d28.571469169580343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749517026!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+											</div>
+										</div>	
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
+				
+				<!-- To do tab -->
 				<div class="tab-pane container-fluid" id="todo">
 					<ul class="nav nav-tabs nav-justified mr-1 mt-1 ml-1">
 						<li class="nav-item">
@@ -341,7 +420,8 @@
 				</div>
 			</div>
 		</main>
-
+		
+		<!-- Bottom navbar -->
 		<nav class="navbar navbar-expand-sm navbar-expand fixed-bottom navbar-dark bg-dark main-nav">
 			<div class="container justify-content-center">
 				<ul class="nav navbar-nav flex-fill justify-content-center">
@@ -357,6 +437,6 @@
 				</ul>
 			</div>
 		</nav>
-
+		
 	</body>
 </html>
