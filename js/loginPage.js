@@ -141,10 +141,10 @@ function doLogin(creationUsername, creationPass) {
 				document.getElementById("loginError").innerHTML = "Success";
 
 				// Save id into a sitewide cookie
-				// createCookie("id", userId.toString());
+				createCookie("id", userId.toString());
 
 				// Save the username for "signed in as:" display
-				// createCookie("username", username);
+				createCookie("username", username);
 
 				// var tempstring = getCookie("user_id");
 
