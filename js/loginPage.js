@@ -105,7 +105,7 @@ function doLogin(creationUsername, creationPass) {
   console.log("Username: " + username + ", Password: " + pass);
 
 	// Glue together some json
-	var jsonPayload = JSON.stringify({username:username, password:md5(pass)});
+	var jsonPayload = JSON.stringify({username:username, password:pass});
 	var url = urlBase + '/api/login2.0.' + extension;
 
 	// Prepare to send
