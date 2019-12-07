@@ -6,7 +6,7 @@ $inData = json_decode(file_get_contents('php://input'), true);
 $myusername = $inData["username"];
 $mypassword = $inData["password"];
 
-$sql = "SELECT* FROM users WHERE username = '{$myusername}' and password = '{$mypassword}'";
+$sql = "SELECT * FROM users WHERE username = '{$myusername}' and password = '{$mypassword}'";
 $result = mysqli_query($db,$sql);
 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 $active = $row['active'];
