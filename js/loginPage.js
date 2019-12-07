@@ -1,4 +1,4 @@
-var urlBase = 'http://ec2-3-133-147-230.us-east-2.compute.amazonaws.com/StudentScheduler/';
+var urlBase = 'http://ec2-3-133-147-230.us-east-2.compute.amazonaws.com/StudentScheduler';
 var extension = "php";
 
 $(function() {
@@ -144,7 +144,7 @@ function doLogin(creationUsername, creationPass) {
 				createCookie("id", userId.toString());
 
 				// Save the username for "signed in as:" display
-				createCookie("username", username);
+				// createCookie("username", username);
 
 				// var tempstring = getCookie("user_id");
 
