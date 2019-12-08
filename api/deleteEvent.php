@@ -10,7 +10,7 @@
 	$taskname = mysqli_real_escape_string($db,$_POST['taskname']);
       	$startdate = mysqli_real_escape_string($db,$_POST['startdate']);
 
-      $sql = "delete from tasks where taskname = '{$taskname}' and userid = '{$_SESSION['user_id']}'";
+      $sql = "delete from events where taskname = '{$taskname}' and userid = '{$_SESSION['user_id']}'";
       $result = mysqli_query($db,$sql);
 
 

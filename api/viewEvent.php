@@ -9,7 +9,7 @@
 	
 	$taskname = mysqli_real_escape_string($db,$_POST['taskname']);
 
-	$sql = "select * from tasks where taskname = '{$taskname}' and userid = '{$_SESSION['user_id']}'";
+	$sql = "select * from events where taskname = '{$taskname}' and userid = '{$_SESSION['user_id']}'";
 	
 	$result = mysqli_query($db,$sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
