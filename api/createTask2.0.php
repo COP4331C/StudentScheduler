@@ -79,7 +79,7 @@
 
 
 
-$sql = "insert into events (taskname, startdate, enddate, starttime, endtime, mon, tues, wen, thr, fri, sat, sun, userid) values ('{$inData['taskname']}', '{$inData['startdate']}', '{$inData['enddate']}', '{$inData['starttime']}', '{$inData['endtime']}', '{$mon}', '{$tue}', '{$wen}', '{$thr}', '{$fri}', '{$sat}', '{$sun}', '{$inData['userid']}')";
+$sql = "insert into tasks (taskname, startdate, enddate, starttime, endtime, mon, tues, wen, thr, fri, sat, sun, userid) values ('{$inData['taskname']}', '{$inData['startdate']}', '{$inData['enddate']}', '{$inData['starttime']}', '{$inData['endtime']}', '{$mon}', '{$tue}', '{$wen}', '{$thr}', '{$fri}', '{$sat}', '{$sun}', '{$inData['userid']}')";
 
       $result = mysqli_query($db,$sql);
 #$sql2 = "select id from events where userid = '{$inData['userid']}' and taskname = '{$inData['taskname']}' and startdate =  '{$inData['startdate']}' and enddate = '{$inData['enddate']}' and mon= '{$mon}' and tues = '{$tue}' and wen= '{$wen}'and thr = '{$thr}'and fri= '{$fri}' and sat = '{$sat}' and sun = '{$sun}' and starttime = '{$inData['starttime']}' and endtime = '{$inData['endtime']}'";
