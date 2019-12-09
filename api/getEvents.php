@@ -12,12 +12,21 @@
 	$sql = "select * from events where userid = '{$_SESSION['user_id']}'";
 
 	$result = mysqli_query($db,$sql);
-	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$json_array = array();
+	// $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-				$row = $result->fetch_assoc();
-				$message = json_encode($row);
-				header('Content-type: application/json');
-				echo $message;
+	if($result->num_rows > 0)
+		while($row = mysqli_fetch($result))
+			$json_array[] = $row;
+
+	header('Content-type: application/json');
+	$message = json_decode($json_array);
+	echo $message;
+
+				// $row = $result->fetch_assoc();
+				// $message = json_encode($row);
+				// header('Content-type: application/json');
+				// echo $message;
 
 
 	}
