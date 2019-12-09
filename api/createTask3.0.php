@@ -5,11 +5,11 @@
         include("session.php");
         session_start();
 
-$sql = "insert into tasks (taskname, due, completed, userid) values ('{$inData['taskname']}', '{$inData['due']}', '{$inData['completed']}', '{$inData['userid']}')";
+$sql = "insert into tasks (taskname, due, completed, userid, building) values ('{$inData['taskname']}', '{$inData['due']}', '{$inData['completed']}', '{$inData['userid']}', '{$inData['building']}')";
 
       $result = mysqli_query($db,$sql);
 #$sql2 = "select id from events where userid = '{$inData['userid']}' and taskname = '{$inData['taskname']}' and startdate =  '{$inData['startdate']}' and enddate = '{$inData['enddate']}' and mon= '{$mon}' and tues = '{$tue}' and wen= '{$wen}'and thr = '{$thr}'and fri= '{$fri}' and sat = '{$sat}' and sun = '{$sun}' and starttime = '{$inData['starttime']}' and endtime = '{$inData['endtime']}'";
-$sql2 = "select * from tasks where userid = '{$inData['userid']}' and taskname = '{$inData['taskname']}' and due =  '{$inData['due']}' and completed = '{$inData['completed']}'";
+$sql2 = "select * from tasks where userid = '{$inData['userid']}' and taskname = '{$inData['taskname']}' and due =  '{$inData['due']}' and completed = '{$inData['completed']}' and '{$inData['building']}'";
 
 $result2 = mysqli_query($db,$sql2);
 
