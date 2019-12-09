@@ -11,7 +11,7 @@
      $result = mysqli_query($db,$sql);
 
      $sql2 = "select * from users where email = '{$email}' and username = '{$username}' and password ='{$password}'";
-     $result2 = mysqli_query($db,$sql);
+     $result2 = mysqli_query($db,$sql2);
 
      if($result === TRUE)
      {
