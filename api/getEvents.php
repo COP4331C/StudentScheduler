@@ -24,8 +24,8 @@
 
 	}
 
-	header('Content-type: application/json');
 	$message = json_encode($json_array);
+	header('Content-type: application/json');
 	echo $message;
 
 				// $row = $result->fetch_assoc();
