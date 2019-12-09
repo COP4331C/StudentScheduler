@@ -16,11 +16,16 @@
 	// $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 	if($result->num_rows > 0)
+	{
 		while($row = mysqli_fetch($result))
+		{
 			$json_array[] = $row;
+		}
+
+	}
 
 	header('Content-type: application/json');
-	$message = json_decode($json_array);
+	$message = json_encode($json_array);
 	echo $message;
 
 				// $row = $result->fetch_assoc();
