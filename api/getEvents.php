@@ -4,10 +4,8 @@
 
 	session_start();
 
-	if ($_SERVER["REQUEST_METHOD"] == "POST")
-	{
 
-	$taskname = mysqli_real_escape_string($db,$_POST['taskname']);
+	//$taskname = mysqli_real_escape_string($db,$_POST['taskname']);
 
 	$sql = "select * from events where userid = '{$_SESSION['user_id']}'";
 
@@ -33,7 +31,5 @@
 				// header('Content-type: application/json');
 				// echo $message;
 
-
-	}
 
 ?>
