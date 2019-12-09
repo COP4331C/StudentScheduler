@@ -10,7 +10,7 @@
      $sql = "insert into users (email, username, password) values('$email','$username','$password')";
      $result = mysqli_query($db,$sql);
 
-     $sql2 = "select * from users where email = '{$email}' and username = '{$username}' and '{$password}'";
+     $sql2 = "select * from users where email = '{$email}' and username = '{$username}' and password ='{$password}'";
      $result2 = mysqli_query($db,$sql);
 
      if($result === TRUE)
