@@ -11,10 +11,10 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" type="text/css" rel="stylesheet">
 
 		<title>uCANfinish</title>
-		
+
 		<!-- Plugins -->
-		
-		
+
+
 		<style>
 		.map-responsive{
 			overflow:hidden;
@@ -28,7 +28,7 @@
 			height:100%;
 			width:100%;
 			position:absolute;
-		}	
+		}
 
 		.card-header .fa {
 		  transition: .3s transform ease-in-out;
@@ -36,32 +36,32 @@
 		.card-header .collapsed .fa {
 		  transform: rotate(90deg);
 		}
-		
+
 		.time-assignment {
 			background-color:#ffffcc;
 		}
-		
+
 		.time-exam {
 			background-color:#ffcccc;
 		}
-		
+
 		.time-other {
 			background-color:#ccccff;
 		}
-		
+
 		.left-half-round {
 			border-top-left-radius: 25px;
 			border-bottom-left-radius: 25px;
 		}
-		
+
 		.right-half-round {
 			border-top-right-radius:25px;
 			border-bottom-right-radius:25px;
 		}
-		
+
 		</style>
 	</head>
-	
+
 	<body>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -72,7 +72,7 @@
 		
 		<main class="container-fluid" style="padding-bottom:60px;">
 			<div class="tab-content">
-			
+
 				<!-- Classes tab -->
 				<div class="tab-pane container-fluid" id="classes">
 					<div class="row mt-2">
@@ -83,7 +83,7 @@
 							<button class="btn btn-danger w-100 font-weight-bold">School's Out!</button>
 						</div>
 					</div>
-					
+
 					<!-- Class cards contained here -->
 					<div class="card-deck">
 						<div class="card mt-3" id="class1">
@@ -183,7 +183,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Pop-up class info editor -->
 					<div class="modal fade" id="classForm">
 						<div class="modal-dialog" id="classModal">
@@ -194,7 +194,7 @@
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
-								
+
 								<div class="modal-body mx-2">
 									<div class="form-row">
 										<div class="form-group col">
@@ -202,7 +202,7 @@
 											<input type="text" id="courseTitle" class="form-control">
 										</div>
 									</div>
-									
+
 									<div class="form-group">
 										<label for="meetPattern">Meeting Pattern</label>
 										<select id="meetPattern" class="form-control">
@@ -215,9 +215,9 @@
 											<option>W</option>
 											<option>Th</option>
 											<option>F</option>
-										</select>						
+										</select>
 									</div>
-									
+
 									<div class="form-row">
 										<div class="form-group col">
 											<label for="meetTime">Start Time</label>
@@ -248,7 +248,7 @@
 												<option>6:30 PM</option>
 												<option>7:00 PM</option>
 												<option>7:30 PM</option>
-											</select>		
+											</select>
 										</div>
 
 										<div class="form-group col">
@@ -259,10 +259,10 @@
 												<option>1hr 15m</option>
 												<option>1hr 50m</option>
 												<option>2hr 50m</option>
-											</select>		
+											</select>
 										</div>
 									</div>
-									
+
 									<div class="form-row">
 										<div class="form-group col">
 											<label for="building">Building</label>
@@ -278,7 +278,7 @@
 												<option>MSB</option>
 												<option>PSB</option>
 												<option>CREOL</option>
-											</select>		
+											</select>
 										</div>
 
 										<div class="form-group col">
@@ -287,7 +287,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="modal-footer d-flex justify-content-center" onclick="saveClick();">
 									<button class="btn btn-dark w-25">Save</button>
 								</div>
@@ -295,7 +295,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- Home page -->
 				<div class="tab-pane container-fluid active" id="homepage">
 					<h4 class="mt-3"><u>T O D A Y</u></h4>
@@ -342,7 +342,7 @@
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.544417952166!2d-81.22985002940365!3d28.57147272627009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749808082!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 											</div>
-										</div>										
+										</div>
 										<div id="eventbike1" class="tab-pane container">
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d56061.54538564143!2d-81.2473803470514!3d28.57436915472536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e1!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749587312!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -357,14 +357,14 @@
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d112126.18146221379!2d-81.27764254925123!3d28.571469169580343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749517026!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 											</div>
-										</div>	
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					<div class="font-weight-bold text-center" style="font-size:16px;">11:30 PM</div>					
+
+					<div class="font-weight-bold text-center" style="font-size:16px;">11:30 PM</div>
 					<div class="card mb-3 text-center" id="homeevent2">
 						<div class="card-header">
 							<a data-toggle="collapse" data-target="#map2collapse" style="font-size:14px;">
@@ -407,7 +407,7 @@
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.544417952166!2d-81.22985002940365!3d28.57147272627009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749808082!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 											</div>
-										</div>										
+										</div>
 										<div id="eventbike2" class="tab-pane container">
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d56061.54538564143!2d-81.2473803470514!3d28.57436915472536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e1!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749587312!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -422,14 +422,14 @@
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d112126.18146221379!2d-81.27764254925123!3d28.571469169580343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749517026!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 											</div>
-										</div>	
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- To do tab -->
 				<div id="todo" class="tab-pane container-fluid">
 					<div class="container-fluid text-center">
@@ -441,7 +441,7 @@
 								<i class="fa fa-angle-left"></i>
 							</a>
 						</div>
-						
+
 						<div id="shownWeekHeader" class="col-6 text-center mt-3">August 1 - August 8</div>
 						<div class="col">
 							<a class="carousel-control-next" href="#weeklyCarousel" role="button" data-slide="next">
@@ -449,7 +449,7 @@
 							</a>
 						</div>
 					</div>
-					
+
 					<!-- Weekly task view -->
 					<div id="weeklyCarousel" class="carousel slide mb-4" data-ride="carousel" data-interval="false" data-touch="true">
 						<div class="carousel-inner">
@@ -465,7 +465,7 @@
 						</div>
 					</div>
 				</div>
-						
+
 				<!-- Pop-up task info editor -->
 				<div class="modal fade" id="taskForm">
 					<div class="modal-dialog" id="classModal">
@@ -476,7 +476,7 @@
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							
+
 							<div class="modal-body mx-2">
 								<div class="form-row">
 									<div class="form-group col">
@@ -484,14 +484,14 @@
 										<input type="text" id="taskTitle" class="form-control">
 									</div>
 								</div>
-								
+
 								<div class="form-row">
 									<div class="form-group col">
 										<label for="taskLocation">Location</label>
 										<input type="text" id="taskLocation" class="form-control">
 									</div>
 								</div>
-								
+
 								<div class="form-row">
 									<div class="form-group col">
 										<label for="taskStartDate">Start Date</label>
@@ -502,7 +502,7 @@
 										<input type="date" id="taskEndDate" class="form-control">
 									</div>
 								</div>
-								
+
 								<div class="form-row">
 									<div class="form-group col">
 										<label for="taskStartTime">Start Time</label>
@@ -514,7 +514,7 @@
 									</div>
 								</div>
 							</div>
-									
+
 							<div class="modal-footer d-flex justify-content-center">
 								<button class="btn btn-dark w-25">Save</button>
 							</div>
@@ -523,7 +523,7 @@
 				</div>
 			</div>
 		</main>
-		
+
 		<!-- Bottom navbar -->
 		<nav class="navbar navbar-expand-sm navbar-expand fixed-bottom navbar-dark bg-dark main-nav">
 			<div class="container justify-content-center">
@@ -540,6 +540,6 @@
 				</ul>
 			</div>
 		</nav>
-		
+
 	</body>
 </html>
