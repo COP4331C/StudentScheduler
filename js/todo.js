@@ -76,28 +76,28 @@ function getTasksForWeek(someWeek) {
 	var tasks = [];
 
 	if (someWeek == "2019-12-9") {
-		tasks.push(new task(1, "test task Monday 12/9", "", "", "", 0, "00:30:23", "01:00:00", "", ""));
-		tasks.push(new task(2, "test task Monday 12/9", "", "", "", 0, "13:30:23", "13:50:00", "", ""));
-		tasks.push(new task(1, "test task Tuesday 12/10", "", "", "", 1, "00:30:23", "01:00:00", "", ""));
-		tasks.push(new task(2, "test task Wednesday 12/11", "", "", "", 2, "13:30:23", "13:50:00", "", ""));
-		tasks.push(new task(1, "test task Thursday 12/12", "", "", "", 3, "00:30:23", "01:00:00", "", ""));
-		tasks.push(new task(2, "test task Friday 12/13", "", "", "", 4, "13:30:23", "13:50:00", "", ""));
+		tasks.push(new task(1, "test task Monday 12/9", "", "", "", 0, "00:30:23", "01:00:00", "", "", "assignment"));
+		tasks.push(new task(2, "test task Monday 12/9", "", "", "", 0, "13:30:23", "13:50:00", "", "", "exam"));
+		tasks.push(new task(1, "test task Tuesday 12/10", "", "", "", 1, "00:30:23", "01:00:00", "", "", "other"));
+		tasks.push(new task(2, "test task Wednesday 12/11", "", "", "", 2, "13:30:23", "13:50:00", "", "", "other"));
+		tasks.push(new task(1, "test task Thursday 12/12", "", "", "", 3, "00:30:23", "01:00:00", "", "", "assignment"));
+		tasks.push(new task(2, "test task Friday 12/13", "", "", "", 4, "13:30:23", "13:50:00", "", "", "assignment"));
 	}
 	if (someWeek == "2019-12-2") {
-		tasks.push(new task(1, "test task Tuesday 12/3", "", "", "", 1, "00:30:23", "01:00:00", "", ""));
-		tasks.push(new task(2, "test task Wednesday 12/4", "", "", "", 2, "13:30:23", "13:50:00", "", ""));
-		tasks.push(new task(1, "test task Thursday 12/5", "", "", "", 3, "00:30:23", "01:00:00", "", ""));
-		tasks.push(new task(2, "test task Friday 12/6", "", "", "", 4, "13:30:23", "13:50:00", "", ""));
-		tasks.push(new task(1, "test task Saturday 12/7", "", "", "", 5, "00:30:23", "01:00:00", "", ""));
-		tasks.push(new task(2, "test task Sunday 12/8", "", "", "", 6, "13:30:23", "13:50:00", "", ""));
+		tasks.push(new task(1, "test task Tuesday 12/3", "", "", "", 1, "00:30:23", "01:00:00", "", "", "exam"));
+		tasks.push(new task(2, "test task Wednesday 12/4", "", "", "", 2, "13:30:23", "13:50:00", "", "", "exam"));
+		tasks.push(new task(1, "test task Thursday 12/5", "", "", "", 3, "00:30:23", "01:00:00", "", "", "assignment"));
+		tasks.push(new task(2, "test task Friday 12/6", "", "", "", 4, "13:30:23", "13:50:00", "", "", "other"));
+		tasks.push(new task(1, "test task Saturday 12/7", "", "", "", 5, "00:30:23", "01:00:00", "", "", "assignment"));
+		tasks.push(new task(2, "test task Sunday 12/8", "", "", "", 6, "13:30:23", "13:50:00", "", "", "exam"));
 	}
 	if (someWeek == "2019-12-16") {
-		tasks.push(new task(1, "test task Monday 12/16", "", "", "", 0, "00:30:23", "01:00:00", "", ""));
-		tasks.push(new task(2, "test task Tuesday 12/17", "", "", "", 1, "13:30:23", "13:50:00", "", ""));
-		tasks.push(new task(1, "test task Thursday 12/19", "", "", "", 3, "00:30:23", "01:00:00", "", ""));
-		tasks.push(new task(2, "test task Saturday 12/21", "", "", "", 5, "13:30:23", "13:50:00", "", ""));
-		tasks.push(new task(1, "test task Sunday 12/22", "", "", "", 6, "00:30:23", "01:00:00", "", ""));
-		tasks.push(new task(2, "test task Sunday 12/22", "", "", "", 6, "13:30:23", "13:50:00", "", ""));
+		tasks.push(new task(1, "test task Monday 12/16", "", "", "", 0, "00:30:23", "01:00:00", "", "", "assignment"));
+		tasks.push(new task(2, "test task Tuesday 12/17", "", "", "", 1, "13:30:23", "13:50:00", "", "", "assignment"));
+		tasks.push(new task(1, "test task Thursday 12/19", "", "", "", 3, "00:30:23", "01:00:00", "", "", "assignment"));
+		tasks.push(new task(2, "test task Saturday 12/21", "", "", "", 5, "13:30:23", "13:50:00", "", "", "other"));
+		tasks.push(new task(1, "test task Sunday 12/22", "", "", "", 6, "00:30:23", "01:00:00", "", "", "exam"));
+		tasks.push(new task(2, "test task Sunday 12/22", "", "", "", 6, "13:30:23", "13:50:00", "", "", "other"));
 	}
 	// get tasks for week starting @date from database and add all to "tasks" array
 	
@@ -163,10 +163,10 @@ function buildWeekHTML(someWeek, targetElement) {
 	monTasks.forEach(function(task) {
 		$(targetElement).append(`
 			<div class="row no-gutters mb-1">
-				<div class="col-3 time-assignment d-flex">
+				<div class="col-3 left-half-round d-flex time-` + task.taskType + `">
 					<div class="justify-content-center align-self-center font-weight-bold" style="padding-left:10px">` + task.startTime + `</div>
 				</div>
-				<div class="col-9 border half-round">
+				<div class="col-9 border right-half-round">
 					<button id="task"` + task.id + ` class="btn w-100 text-left taskbutton">` + task.details + `</button>
 				</div>
 			</div>
@@ -180,10 +180,10 @@ function buildWeekHTML(someWeek, targetElement) {
 	tueTasks.forEach(function(task) {
 		$(targetElement).append(`
 			<div class="row no-gutters mb-1">
-				<div class="col-3 time-assignment d-flex">
+				<div class="col-3 left-half-round d-flex time-` + task.taskType + `">
 					<div class="justify-content-center align-self-center font-weight-bold" style="padding-left:10px">` + task.startTime + `</div>
 				</div>
-				<div class="col-9 border half-round">
+				<div class="col-9 border right-half-round">
 					<button id="task"` + task.id + ` class="btn w-100 text-left taskbutton">` + task.details + `</button>
 				</div>
 			</div>
@@ -197,10 +197,10 @@ function buildWeekHTML(someWeek, targetElement) {
 	wedTasks.forEach(function(task) {
 		$(targetElement).append(`
 			<div class="row no-gutters mb-1">
-				<div class="col-3 time-assignment d-flex">
+				<div class="col-3 left-half-round d-flex time-` + task.taskType + `">
 					<div class="justify-content-center align-self-center font-weight-bold" style="padding-left:10px">` + task.startTime + `</div>
 				</div>
-				<div class="col-9 border half-round">
+				<div class="col-9 border right-half-round">
 					<button id="task"` + task.id + ` class="btn w-100 text-left taskbutton">` + task.details + `</button>
 				</div>
 			</div>
@@ -214,10 +214,10 @@ function buildWeekHTML(someWeek, targetElement) {
 	thuTasks.forEach(function(task) {
 		$(targetElement).append(`
 			<div class="row no-gutters mb-1">
-				<div class="col-3 time-assignment d-flex">
+				<div class="col-3 left-half-round d-flex time-` + task.taskType + `">
 					<div class="justify-content-center align-self-center font-weight-bold" style="padding-left:10px">` + task.startTime + `</div>
 				</div>
-				<div class="col-9 border half-round">
+				<div class="col-9 border right-half-round">
 					<button id="task"` + task.id + ` class="btn w-100 text-left taskbutton">` + task.details + `</button>
 				</div>
 			</div>
@@ -231,10 +231,10 @@ function buildWeekHTML(someWeek, targetElement) {
 	friTasks.forEach(function(task) {
 		$(targetElement).append(`
 			<div class="row no-gutters mb-1">
-				<div class="col-3 time-assignment d-flex">
+				<div class="col-3 left-half-round d-flex time-` + task.taskType + `">
 					<div class="justify-content-center align-self-center font-weight-bold" style="padding-left:10px">` + task.startTime + `</div>
 				</div>
-				<div class="col-9 border half-round">
+				<div class="col-9 border right-half-round">
 					<button id="task"` + task.id + ` class="btn w-100 text-left taskbutton">` + task.details + `</button>
 				</div>
 			</div>
@@ -248,10 +248,10 @@ function buildWeekHTML(someWeek, targetElement) {
 	satTasks.forEach(function(task) {
 		$(targetElement).append(`
 			<div class="row no-gutters mb-1">
-				<div class="col-3 time-assignment d-flex">
+				<div class="col-3 left-half-round d-flex time-` + task.taskType + `">
 					<div class="justify-content-center align-self-center font-weight-bold" style="padding-left:10px">` + task.startTime + `</div>
 				</div>
-				<div class="col-9 border half-round">
+				<div class="col-9 border right-half-round">
 					<button id="task"` + task.id + ` class="btn w-100 text-left taskbutton">` + task.details + `</button>
 				</div>
 			</div>
@@ -265,10 +265,10 @@ function buildWeekHTML(someWeek, targetElement) {
 	sunTasks.forEach(function(task) {
 		$(targetElement).append(`
 			<div class="row no-gutters mb-1">
-				<div class="col-3 time-assignment d-flex">
+				<div class="col-3 left-half-round d-flex time-` + task.taskType + `">
 					<div class="justify-content-center align-self-center font-weight-bold" style="padding-left:10px">` + task.startTime + `</div>
 				</div>
-				<div class="col-9 border half-round">
+				<div class="col-9 border right-half-round">
 					<button id="task"` + task.id + ` class="btn w-100 text-left taskbutton">` + task.details + `</button>
 				</div>
 			</div>
