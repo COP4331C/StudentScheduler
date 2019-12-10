@@ -1,7 +1,7 @@
 <?php
 
      include("config.php");
-     include("session.php");
+     // include("session.php");
      $inData = json_decode(file_get_contents('php://input'), true);
      $email = $inData['email'];
      $username = $inData['username'];
