@@ -32,7 +32,13 @@ function event(id, eventName, startDate, endDate, pattern, startTime, endTime, b
   this.building = building;
 }
 
-function dayParse()
+function dayParse(eventArray, index){
+  var dayArray[];
+
+  if(eventArray[index].mon) == 1)
+    dayArray.push('M')
+
+}
 
 function getAllEvents(){
   var events[];
@@ -70,13 +76,53 @@ function getAllEvents(){
           args[1] = jsonObject[i].taskname;
           args[2] = jsonObject[i].startdate;
           args[3] = jsonObject[i].enddate;
-          args[4] = dayParse(jsonObject);
-          events.push(new event(args[0], args[1], args[2]
-                      , jsonObject[i].enddate,
-                      json))
+          args[4] = dayParse(jsonObject, i);
+          
         }
       }
     }
   }
+}
 
+function createEvent(args, user_id) {
+    var jsonPayload = JSON.stringify({taskname:args[1], startdate:args[2], enddate:args[3], starttime:args[4], endtime:args[5], mon:args[6], tues:args[7], wen:args[8], thr:args[9], fri:args[10], sat:args[11], sun:args[12], userid:user_id, building:args[13]});
+
+// {taskname:args[1], startdate:args[2], enddate:args[3], starttime:args[4], endtime:args[5], mon:args[6], tues:args[7], wen:args[8], thr:args[9], fri:args[10], sat:args[11], sun:args[12], userid:user_id, building:args[13]}
+
+    var url = urlBase + '/api/createEvent3.0.' + extension;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try
+    {
+        xhr.send(jsonPayload);
+        console.log(jsonPlayload);
+
+        xhr.onreadystatechange = function()
+        {
+            if (this.readyState == 4 && this.status == 200)
+            {
+                var jsonObject = JSON.parse(xhr.responseText);
+
+                if(jsonObject.hasOwnProperty('cid') && jsonObject.cid <= 0)
+                {
+                    console.log("Unexpected error");
+                    console.log(jsonObject.error);
+                    console.log("cid please " + jsonObject.cid);
+                    return -1;
+                }
+
+                console.log("Contact created successfully");
+                console.log("cid i guess = " + jsonObject.cid);
+                document.location.reload(true);
+                return jsonObject.cid;
+            }
+        }
+    }
+    catch (err)
+    {
+
+    }
 }
