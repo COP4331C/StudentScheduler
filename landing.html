@@ -11,10 +11,10 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" type="text/css" rel="stylesheet">
 
 		<title>uCANfinish</title>
-
+		
 		<!-- Plugins -->
-
-
+		
+		
 		<style>
 		.map-responsive{
 			overflow:hidden;
@@ -28,7 +28,7 @@
 			height:100%;
 			width:100%;
 			position:absolute;
-		}
+		}	
 
 		.card-header .fa {
 		  transition: .3s transform ease-in-out;
@@ -36,20 +36,60 @@
 		.card-header .collapsed .fa {
 		  transform: rotate(90deg);
 		}
+		
+		.time-assignment {
+			background-color:#fff082;
+			border-top-left-radius: 25px;
+			border-bottom-left-radius: 25px;
+		}
+		
+		.time-exam {
+			background-color:#ff5757;
+			border-top-left-radius: 25px;
+			border-bottom-left-radius: 25px;
+		}
+		
+		th {
+			width: 14%;
+			font-size: 14px;
+		}
+		
+		.half-round {
+			border-top-right-radius:25px;
+			border-bottom-right-radius:25px;
+		}
+		
+		.btn-calendar {
+			width:100%;
+			padding-left:0;
+			padding-right:0;
+			padding-top:0;
+			padding-bottom:0;
+		}
+		
+		.calenday.muted {
+			color:#ababab;
+		}
+		
+		.calenday.active {
+			color:#ffffff;
+			background-color:#007bff;
+		}
+		
 		</style>
 	</head>
-
+	
 	<body>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-		<script src="planner.js"></script>
-
+		<script src="controls.js"></script>
+		
 		<main class="container-fluid" style="padding-bottom:60px;">
 			<div class="tab-content">
-
+			
 				<!-- Classes tab -->
 				<div class="tab-pane container-fluid" id="classes">
 					<div class="row mt-2">
@@ -60,9 +100,9 @@
 							<button class="btn w-100 font-weight-bold">School's Out!</button>
 						</div>
 					</div>
-
+					
 					<!-- Class cards contained here -->
-					<div class="card-deck" id="eventcard-container">
+					<div class="card-deck">
 						<div class="card mt-3" id="class1">
 							<div class="card-header">
 								<div class="d-flex align-items-center">
@@ -160,7 +200,7 @@
 							</div>
 						</div>
 					</div>
-
+					
 					<!-- Pop-up class info editor -->
 					<div class="modal fade" id="classForm">
 						<div class="modal-dialog" id="classModal">
@@ -171,7 +211,7 @@
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
-
+								
 								<div class="modal-body mx-2">
 									<div class="form-row">
 										<div class="form-group col">
@@ -179,7 +219,7 @@
 											<input type="text" id="courseTitle" class="form-control">
 										</div>
 									</div>
-
+									
 									<div class="form-group">
 										<label for="meetPattern">Meeting Pattern</label>
 										<select id="meetPattern" class="form-control">
@@ -192,9 +232,9 @@
 											<option>W</option>
 											<option>Th</option>
 											<option>F</option>
-										</select>
+										</select>						
 									</div>
-
+									
 									<div class="form-row">
 										<div class="form-group col">
 											<label for="meetTime">Start Time</label>
@@ -225,7 +265,7 @@
 												<option>6:30 PM</option>
 												<option>7:00 PM</option>
 												<option>7:30 PM</option>
-											</select>
+											</select>		
 										</div>
 
 										<div class="form-group col">
@@ -236,10 +276,10 @@
 												<option>1hr 15m</option>
 												<option>1hr 50m</option>
 												<option>2hr 50m</option>
-											</select>
+											</select>		
 										</div>
 									</div>
-
+									
 									<div class="form-row">
 										<div class="form-group col">
 											<label for="building">Building</label>
@@ -255,7 +295,7 @@
 												<option>MSB</option>
 												<option>PSB</option>
 												<option>CREOL</option>
-											</select>
+											</select>		
 										</div>
 
 										<div class="form-group col">
@@ -264,7 +304,7 @@
 										</div>
 									</div>
 								</div>
-
+								
 								<div class="modal-footer d-flex justify-content-center" onclick="saveClick();">
 									<button class="btn btn-dark w-25">Save</button>
 								</div>
@@ -272,7 +312,7 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<!-- Home page -->
 				<div class="tab-pane container-fluid active" id="homepage">
 					<h4 class="mt-3"><u>T O D A Y</u></h4>
@@ -319,7 +359,7 @@
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.544417952166!2d-81.22985002940365!3d28.57147272627009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749808082!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 											</div>
-										</div>
+										</div>										
 										<div id="eventbike1" class="tab-pane container">
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d56061.54538564143!2d-81.2473803470514!3d28.57436915472536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e1!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749587312!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -334,14 +374,14 @@
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d112126.18146221379!2d-81.27764254925123!3d28.571469169580343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749517026!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 											</div>
-										</div>
+										</div>	
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-
-					<div class="font-weight-bold text-center" style="font-size:16px;">11:30 PM</div>
+					
+					<div class="font-weight-bold text-center" style="font-size:16px;">11:30 PM</div>					
 					<div class="card mb-3 text-center" id="homeevent2">
 						<div class="card-header">
 							<a data-toggle="collapse" data-target="#map2collapse" style="font-size:14px;">
@@ -384,7 +424,7 @@
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.544417952166!2d-81.22985002940365!3d28.57147272627009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749808082!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 											</div>
-										</div>
+										</div>										
 										<div id="eventbike2" class="tab-pane container">
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d56061.54538564143!2d-81.2473803470514!3d28.57436915472536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e1!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749587312!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -399,16 +439,16 @@
 											<div class="map-responsive">
 												<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d112126.18146221379!2d-81.27764254925123!3d28.571469169580343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749517026!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 											</div>
-										</div>
+										</div>	
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
+				
 				<!-- To do tab -->
-				<div class="tab-pane container-fluid" id="todo">
+				<div class="tab-pane container-fluid" id="todo" style="padding-left:0; padding-right:0">
 					<ul class="nav nav-tabs nav-justified mr-1 mt-1 ml-1 mb-3">
 						<li class="nav-item">
 							<a class="nav-link active" data-toggle="tab" href="#weeklyView">Weekly</a>
@@ -418,24 +458,64 @@
 						</li>
 					</ul>
 					<div class="tab-content">
-						<div id="weeklyView" class="tab-pane container-fluid active">
+						<div id="weeklyView" class="tab-pane container-fluid active nopadding">
 							<div class="row">
 								<div class="col">
 									<a class="carousel-control-prev" href="#weeklyCarousel" role="button" data-slide="prev">
 										<i class="fa fa-angle-left"></i>
 									</a>
 								</div>
-								<div class="col-6 text-center">August 1 - August 8</div>
+								<div id="shownWeekHeader" class="col-6 text-center">August 1 - August 8</div>
 								<div class="col">
 									<a class="carousel-control-next" href="#weeklyCarousel" role="button" data-slide="next">
 										<i class="fa fa-angle-right"></i>
 									</a>
 								</div>
 							</div>
-
+							
+							<!-- Weekly task view -->
 							<div id="weeklyCarousel" class="carousel slide" data-ride="carousel" data-interval="false" data-touch="true">
 								<div class="carousel-inner">
-									<div class="carousel-item active">
+									<div id="week1slide" class="carousel-item mb-5">
+										<div class="mt-4">M O N D A Y</div>
+										<hr/>
+										<div name="mondayNothing" class="text-muted text-center w-100 d-none"><i>Nothing yet</i></div>
+										<div class="row no-gutters mb-1">
+											<div class="col-3 time-assignment d-flex">
+												<div class="justify-content-center align-self-center font-weight-bold" style="padding-left:10px">1:00P</div>
+											</div>
+											<div class="col-9 border half-round">
+												<button class="btn w-100 text-left">do this long ass assignment and study for 2 tests fuck me</button>
+											</div>
+										</div>
+										<div class="row no-gutters">
+											<div class="col-3 time-assignment d-flex">
+												<div class="justify-content-center align-self-center font-weight-bold" style="padding-left:10px">4:00P</div>
+											</div>
+											<div class="col-9 border half-round">
+												<button class="btn w-100 text-left">Testing some stuff again</button>
+											</div>
+										</div>
+										<div class="mt-4">T U E S D A Y</div>
+										<hr/>
+										<div name="tuesdayNothing" class="text-muted text-center w-100"><i>Nothing yet</i></div>
+										<div class="mt-4">W E D N E S D A Y</div>
+										<hr/>
+										<div name="wednesdayNothing" class="text-muted text-center w-100"><i>Nothing yet</i></div>
+										<div class="mt-4">T H U R S D A Y</div>
+										<hr/>
+										<div name="thursdayNothing" class="mb-4 text-muted text-center w-100"><i>Nothing yet</i></div>
+										<div class="mt-4">F R I D A Y</div>
+										<hr/>
+										<div name="fridayNothing" class="text-muted text-center w-100"><i>Nothing yet</i></div>
+										<div class="mt-4">S A T U R D A Y</div>
+										<hr/>
+										<div name="saturdayNothing" class="text-muted text-center w-100"><i>Nothing yet</i></div>
+										<div class="mt-4">S U N D A Y</div>
+										<hr/>
+										<div name="sundayNothing" class="text-muted text-center w-100"><i>Nothing yet</i></div>
+									</div>
+									<div id="week2slide" class="carousel-item active">
 										<div>M O N D A Y</div>
 										<hr/>
 										<div class="mb-4 text-muted text-center w-100"><i>Nothing yet</i></div>
@@ -452,6 +532,356 @@
 										<hr/>
 										<div class="mb-4 text-muted text-center w-100"><i>Nothing yet</i></div>
 									</div>
+									<div id="week3slide" class="carousel-item">
+										<div>M O N D A Y</div>
+										<hr/>
+										<div class="mb-4 text-muted text-center w-100"><i>Nothing yet</i></div>
+										<div>T U E S D A Y</div>
+										<hr/>
+										<div class="mb-4 text-muted text-center w-100"><i>Nothing yet</i></div>
+										<div>W E D N E S D A Y</div>
+										<hr/>
+										<div class="mb-4 text-muted text-center w-100"><i>Nothing yet</i></div>
+										<div>T H U R S D A Y</div>
+										<hr/>
+										<div class="mb-4 text-muted text-center w-100"><i>Nothing yet</i></div>
+										<div>F R I D A Y</div>
+										<hr/>
+										<div class="mb-4 text-muted text-center w-100"><i>Nothing yet</i></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Pop-up task info editor -->
+						<div class="modal fade" id="taskForm">
+							<div class="modal-dialog" id="classModal">
+								<div class="modal-content">
+									<div class="modal-header text-center">
+										<h4 class="modal-title w-100">Class Info</h4>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									
+									<div class="modal-body mx-2">
+										<div class="form-row">
+											<div class="form-group col">
+												<label for="courseTitle">Task Name</label>
+												<input type="text" id="courseTitle" class="form-control">
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label for="meetPattern">Meeting Pattern</label>
+											<select id="meetPattern" class="form-control">
+												<option selected>Choose</option>
+												<option>M W F</option>
+												<option>M W</option>
+												<option>Tu Th</option>
+												<option>M</option>
+												<option>Tu</option>
+												<option>W</option>
+												<option>Th</option>
+												<option>F</option>
+											</select>						
+										</div>
+										
+										<div class="form-row">
+											<div class="form-group col">
+												<label for="meetTime">Start Time</label>
+												<select id="meetTime" class="form-control">
+													<option selected>Choose</option>
+													<option>7:30 AM</option>
+													<option>8:00 AM</option>
+													<option>8:30 AM</option>
+													<option>9:00 AM</option>
+													<option>9:30 AM</option>
+													<option>10:00 AM</option>
+													<option>10:30 AM</option>
+													<option>11:00 AM</option>
+													<option>11:30 AM</option>
+													<option>12:00 PM</option>
+													<option>12:30 PM</option>
+													<option>1:00 PM</option>
+													<option>1:30 PM</option>
+													<option>2:00 PM</option>
+													<option>2:30 PM</option>
+													<option>3:00 PM</option>
+													<option>3:30 PM</option>
+													<option>4:00 PM</option>
+													<option>4:30 PM</option>
+													<option>5:00 PM</option>
+													<option>5:30 PM</option>
+													<option>6:00 PM</option>
+													<option>6:30 PM</option>
+													<option>7:00 PM</option>
+													<option>7:30 PM</option>
+												</select>		
+											</div>
+
+											<div class="form-group col">
+												<label for="meetLength">Length</label>
+												<select id="meetLength" class="form-control">
+													<option selected>Choose</option>
+													<option>50m</option>
+													<option>1hr 15m</option>
+													<option>1hr 50m</option>
+													<option>2hr 50m</option>
+												</select>		
+											</div>
+										</div>
+										
+										<div class="form-row">
+											<div class="form-group col">
+												<label for="building">Building</label>
+												<select id="building" class="form-control">
+													<option selected>Choose</option>
+													<option>CB1</option>
+													<option>CB2</option>
+													<option>HEC</option>
+													<option>ENG1</option>
+													<option>ENG2</option>
+													<option>PSY</option>
+													<option>NSC</option>
+													<option>MSB</option>
+													<option>PSB</option>
+													<option>CREOL</option>
+												</select>		
+											</div>
+
+											<div class="form-group col">
+												<label for="room">Room</label>
+												<input type="text" id="room" class="form-control">
+											</div>
+										</div>
+									</div>
+									
+									<div class="modal-footer d-flex justify-content-center">
+										<button class="btn btn-dark w-25">Save</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Calender task view !!DO NOT USE!! -->
+						<div id="calendarView" class="tab-pane container-fluid">
+							<div class="row">
+								<div class="col">
+									<a class="carousel-control-prev" href="#calendarCarousel" role="button" data-slide="prev">
+										<i class="fa fa-angle-left"></i>
+									</a>
+								</div>
+								<div id="monthName" class="col-6 text-center">D E C E M B E R</div>
+								<div class="col">
+									<a class="carousel-control-next" href="#calendarCarousel" role="button" data-slide="next">
+										<i class="fa fa-angle-right"></i>
+									</a>
+								</div>
+							</div>
+							
+							<div id="month1" class="carousel slide" data-ride="carousel" data-interval="false" data-touch="true">
+								<div class="carousel-inner">
+									<div id="currentMonth" class="carousel-item active">
+										<table name="calendarTable" class="table table-bordered text-center">
+											<thead>
+												<th scope="col">Su</th>
+												<th scope="col">M</th>
+												<th scope="col">Tu</th>
+												<th scope="col">W</th>
+												<th scope="col">Th</th>
+												<th scope="col">F</th>
+												<th scope="col">Sa</th>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="calenday" name="1">1</td>
+													<td class="calenday" name="2">2</td>
+													<td class="calenday" name="3">3</td>
+													<td class="calenday" name="4">4</td>
+													<td class="calenday" name="5">5</td>
+													<td class="calenday" name="6">6</td>
+													<td class="calenday" name="7">7</td>
+												</tr>
+												<tr>
+													<td class="calenday" name="8">8</td>
+													<td class="calenday" name="9">9</td>
+													<td class="calenday" name="10">10</td>
+													<td class="calenday" name="11">11</td>
+													<td class="calenday" name="12">12</td>
+													<td class="calenday" name="13">13</td>
+													<td class="calenday" name="14">14</td>
+												</tr>
+												<tr>
+													<td class="calenday" name="15">15</td>
+													<td class="calenday" name="16">16</td>
+													<td class="calenday" name="17">17</td>
+													<td class="calenday" name="18">18</td>
+													<td class="calenday" name="19">19</td>
+													<td class="calenday" name="20">20</td>
+													<td class="calenday" name="21">21</td>
+												</tr>
+												<tr>
+													<td class="calenday" name="22">22</td>
+													<td class="calenday" name="23">23</td>
+													<td class="calenday" name="24">24</td>
+													<td class="calenday" name="25">25</td>
+													<td class="calenday" name="26">26</td>
+													<td class="calenday" name="27">27</td>
+													<td class="calenday" name="28">28</td>
+												</tr>
+												<tr>
+													<td class="calenday" name="29">29</td>
+													<td class="calenday" name="30">30</td>
+													<td class="calenday" name="31">31</td>
+													<td class="calenday muted" name="32">1</td>
+													<td class="calenday muted" name="33">2</td>
+													<td class="calenday muted" name="34">3</td>
+													<td class="calenday muted" name="35">4</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									
+									<div id="month2" class="carousel-item">
+										<table name="calendarTable" class="table table-bordered text-center">
+											<thead>
+												<th scope="col">Su</th>
+												<th scope="col">M</th>
+												<th scope="col">Tu</th>
+												<th scope="col">W</th>
+												<th scope="col">Th</th>
+												<th scope="col">F</th>
+												<th scope="col">Sa</th>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="calenday" name="1"></td>
+													<td class="calenday" name="2"></td>
+													<td class="calenday" name="3"></td>
+													<td class="calenday" name="4"></td>
+													<td class="calenday" name="5"></td>
+													<td class="calenday" name="6"></td>
+													<td class="calenday" name="7"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="8"></td>
+													<td class="calenday" name="9"></td>
+													<td class="calenday" name="10"></td>
+													<td class="calenday" name="11"></td>
+													<td class="calenday" name="12"></td>
+													<td class="calenday" name="13"></td>
+													<td class="calenday" name="14"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="15"></td>
+													<td class="calenday" name="16"></td>
+													<td class="calenday" name="17"></td>
+													<td class="calenday" name="18"></td>
+													<td class="calenday" name="19"></td>
+													<td class="calenday" name="20"></td>
+													<td class="calenday" name="21"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="22"></td>
+													<td class="calenday" name="23"></td>
+													<td class="calenday" name="24"></td>
+													<td class="calenday" name="25"></td>
+													<td class="calenday" name="26"></td>
+													<td class="calenday" name="27"></td>
+													<td class="calenday" name="28"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="29"></td>
+													<td class="calenday" name="30"></td>
+													<td class="calenday" name="31"></td>
+													<td class="calenday" name="32"></td>
+													<td class="calenday" name="33"></td>
+													<td class="calenday" name="34"></td>
+													<td class="calenday" name="35"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="36"></td>
+													<td class="calenday" name="37"></td>
+													<td class="calenday" name="38"></td>
+													<td class="calenday" name="39"></td>
+													<td class="calenday" name="40"></td>
+													<td class="calenday" name="41"></td>
+													<td class="calenday" name="42"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									
+									<div id="month3" class="carousel-item">
+										<table name="calendarTable" class="table table-bordered text-center">
+											<thead>
+												<th scope="col">M</th>
+												<th scope="col">Tu</th>
+												<th scope="col">W</th>
+												<th scope="col">Th</th>
+												<th scope="col">F</th>
+												<th scope="col">Sa</th>
+												<th scope="col">Su</th>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="calenday" name="1"></td>
+													<td class="calenday" name="2"></td>
+													<td class="calenday" name="3"></td>
+													<td class="calenday" name="4"></td>
+													<td class="calenday" name="5"></td>
+													<td class="calenday" name="6"></td>
+													<td class="calenday" name="7"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="8"></td>
+													<td class="calenday" name="9"></td>
+													<td class="calenday" name="10"></td>
+													<td class="calenday" name="11"></td>
+													<td class="calenday" name="12"></td>
+													<td class="calenday" name="13"></td>
+													<td class="calenday" name="14"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="15"></td>
+													<td class="calenday" name="16"></td>
+													<td class="calenday" name="17"></td>
+													<td class="calenday" name="18"></td>
+													<td class="calenday" name="19"></td>
+													<td class="calenday" name="20"></td>
+													<td class="calenday" name="21"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="22"></td>
+													<td class="calenday" name="23"></td>
+													<td class="calenday" name="24"></td>
+													<td class="calenday" name="25"></td>
+													<td class="calenday" name="26"></td>
+													<td class="calenday" name="27"></td>
+													<td class="calenday" name="28"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="29"></td>
+													<td class="calenday" name="30"></td>
+													<td class="calenday" name="31"></td>
+													<td class="calenday" name="32"></td>
+													<td class="calenday" name="33"></td>
+													<td class="calenday" name="34"></td>
+													<td class="calenday" name="35"></td>
+												</tr>
+												<tr>
+													<td class="calenday" name="36"></td>
+													<td class="calenday" name="37"></td>
+													<td class="calenday" name="38"></td>
+													<td class="calenday" name="39"></td>
+													<td class="calenday" name="40"></td>
+													<td class="calenday" name="41"></td>
+													<td class="calenday" name="42"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 									<div class="carousel-item">
 										<div class="mt-2"><u>M O N D A Y</u></div>
 										<div class="text-muted text-center w-100"><i>idk</i></div>
@@ -459,11 +889,12 @@
 								</div>
 							</div>
 						</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</main>
-
+		
 		<!-- Bottom navbar -->
 		<nav class="navbar navbar-expand-sm navbar-expand fixed-bottom navbar-dark bg-dark main-nav">
 			<div class="container justify-content-center">
@@ -480,6 +911,6 @@
 				</ul>
 			</div>
 		</nav>
-
+		
 	</body>
 </html>
