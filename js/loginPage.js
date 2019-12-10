@@ -29,14 +29,20 @@ function doCreateAccount()
 	userId = 0;
 	document.getElementById("signupError").innerHTML = "";
 
-
+  var email = document.getElementById("signupEmail").value;
 	var username = document.getElementById("signupUsername").value;
 	var password = document.getElementById("signupPW").value;
 	var confirmPass = document.getElementById("confirmPW").value;
 
 	if (username == "")
 	{
-		document.getElementById("signupError").innerHTML = "Enter an username address";
+		document.getElementById("signupError").innerHTML = "Enter an username";
+		return;
+	}
+
+  if (username == "")
+	{
+		document.getElementById("signupError").innerHTML = "Enter an email";
 		return;
 	}
 
@@ -47,7 +53,7 @@ function doCreateAccount()
 		return;
 	}
 
-	var jsonPayload = JSON.stringify({username:username, password:password});
+	var jsonPayload = JSON.stringify({email:email, username:username, password:password});
 	var url = urlBase + '/api/createAccount.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -144,7 +150,7 @@ function doLogin(creationUsername, creationPass) {
 				createCookie("id", userId.toString());
 
 				// Save the username for "signed in as:" display
-				// createCookie("username", username);
+				createCookie("username", username);
 
 				// var tempstring = getCookie("user_id");
 
