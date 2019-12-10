@@ -36,7 +36,9 @@ function dayParse(eventArray, index){
   var dayArray[];
 
   if(eventArray[index].mon) == 1)
-    dayArray.push('M')
+    dayArray.push('M');
+  if(eventArray[index].tues == 2)
+    dayArray.push('T');
 
 }
 
@@ -77,7 +79,7 @@ function getAllEvents(){
           args[2] = jsonObject[i].startdate;
           args[3] = jsonObject[i].enddate;
           args[4] = dayParse(jsonObject, i);
-          
+
         }
       }
     }
