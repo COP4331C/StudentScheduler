@@ -21,25 +21,32 @@ function getCookie(cname)
 }
 
 // event object constructor
-function event(id, eventName, startDate, endDate, pattern, startTime, endTime, building){
-  this.id = id;
-  this.eventName = eventName;
-  this.startDate = startDate;
-  this.endDate = endDate;
-  this.pattern = pattern;
-  this.startTime = startTime;
-  this.endTime = endTime;
-  this.building = building;
+function event(){
+  this.id = args[0];
+  this.eventName = args[1];
+  this.building = args[2];
+  this.startDate = args[3];
+  this.endDate = args[4];
+  this.pattern = args[5];
+  this.startTime = args[6];
+  this.endTime = args[7];
 }
 
 function dayParse(eventArray, index){
   var dayArray[];
 
   if(eventArray[index].mon) == 1)
-    dayArray.push('M');
-  if(eventArray[index].tues == 2)
-    dayArray.push('T');
+    dayArray.push("M");
+  if(eventArray[index].tues == 1)
+    dayArray.push("Tu");
+  if(eventArray[index].wen == 1)
+    dayArray.push("W");
+  if(eventArray[index].thr == 1)
+    dayArray.push("Tr");
+  if(eventArray[index].fri == 1)
+    dayArray.push("F");
 
+  return dayArray;
 }
 
 function getAllEvents(){
@@ -71,15 +78,18 @@ function getAllEvents(){
         }
 
         var numEvents = jsonObject.length;
+        var args[];
 
         for (int i = 0; i < numEvents; i++){
-          var args = [0];
           args[0] = jsonObject[i].id;
           args[1] = jsonObject[i].taskname;
-          args[2] = jsonObject[i].startdate;
-          args[3] = jsonObject[i].enddate;
-          args[4] = dayParse(jsonObject, i);
-
+          args[2] = jsonObject[i].building;
+          args[3] = jsonObject[i].startdate;
+          args[4] = jsonObject[i].enddate;
+          args[5] = dayParse(jsonObject, i);
+          args[6] = jsonObject[i].starttime;
+          args[7] = jsonObject[i].endtime;
+          events.push(new event(args));
         }
       }
     }
