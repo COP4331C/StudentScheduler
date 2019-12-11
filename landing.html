@@ -477,7 +477,7 @@
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-
+							
 							<div class="modal-body mx-2">
 								<div class="form-row">
 									<div class="form-group col">
@@ -485,86 +485,39 @@
 										<input type="text" id="taskTitle" class="form-control">
 									</div>
 								</div>
-
-<!--								<div class="form-row">
+								
+								<div class="form-row">
 									<div class="form-group col">
 										<label for="taskLocation">Location</label>
 										<input type="text" id="taskLocation" class="form-control">
 									</div>
 								</div>
--->
+								
 								<div class="form-row">
-									<div class="form-group col">
-										<label for="building">Building</label>
-										<select id="building" class="form-control">
-											<option selected>Choose</option>
-											<option>CB1</option>
-											<option>CB2</option>
-											<option>HEC</option>
-											<option>ENG1</option>
-											<option>ENG2</option>
-											<option>PSY</option>
-											<option>NSC</option>
-											<option>MSB</option>
-											<option>PSB</option>
-											<option>CREOL</option>
-										</select>
-									</div>
-
-
-									<div class="form-group col">
-										<label for="cat">Category</label>
-										<select id="cat" class="form-control">
-											<option selected>Choose</option>
-											<option>Exam</option>
-											<option>Assignment</option>
-											<option>Other</option>
-										</select>
-									</div>
-<!--								<div class="form-row">
 									<div class="form-group col">
 										<label for="taskStartDate">Start Date</label>
 										<input type="date" id="taskStartDate" class="form-control">
 									</div>
 									<div class="form-group col">
-										<label for="taskDueDate">Due Date</label>
-										<input type="date" id="taskDueDate" class="form-control">
+										<label for="taskEndDate">End Date</label>
+										<input type="date" id="taskEndDate" class="form-control">
 									</div>
 								</div>
--->
-								<!-- <div class="form-row">
+								
+								<div class="form-row">
 									<div class="form-group col">
 										<label for="taskStartTime">Start Time</label>
-										<input type="time" id="taskDueTime" class="form-control">
-									</div> -->
-									<!-- <div class="form-group col">
+										<input type="time" id="taskStartTime" class="form-control">
+									</div>
+									<div class="form-group col">
 										<label for="taskEndTime">End Time</label>
 										<input type="time" id="taskEndTime" class="form-control">
-									</div> -->
-								</div>
-
-								<div class="form-row">
-									<!--<div class="form-group col">
-										<label for="taskStartDate">Start Date</label>
-										<input type="date" id="taskStartDate" class="form-control">
-									</div>-->
-									<div class="form-group col">
-										<label for="taskDueDate">Due Date</label>
-										<input type="date" id="taskDueDate" class="form-control">
 									</div>
 								</div>
-
-								<div class="form-row">
-									<div class="form-group col">
-										<label for="taskNotes">Notes</label>
-										<input type="text" id="taskNotes" class="form-control">
-									</div>
-								</div>
-
 							</div>
-
-							<div class="modal-footer d-flex justify-content-center" onclick="saveTask();">
-								<button class="btn btn-dark w-25">Save</button>
+									
+							<div class="modal-footer d-flex justify-content-center">
+								<button class="btn btn-dark w-25" onclick="addNewTask">Save</button>
 							</div>
 						</div>
 					</div>
