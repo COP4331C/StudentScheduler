@@ -512,14 +512,6 @@ $(document).ready(function() {
 
 });
 
-	
-// 								HTML EVENTS
-// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// rebuild neighboring week when carousel slides
-	$('#weeklyCarousel').on('slid.bs.carousel', carouselSlid);
-		
-});
-
 function editClassClick(sender) {
 	var editingCourse = 
 	var patternDropdown = $('#meetPattern');
