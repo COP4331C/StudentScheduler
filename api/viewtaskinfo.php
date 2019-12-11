@@ -8,10 +8,10 @@
 	$json_array = array();
 	if($result->num_rows > 0)
 	{
-		$row = mysqli_fetch_assoc($result)
-          $message = json_encode($row);
-     	header('Content-type: application/json');
-     	echo $message;
+		$row = mysqli_fetch_assoc($result);
+          	$message = json_encode($row);
+     		header('Content-type: application/json');
+     		echo $message;
 	}
      else
      {
