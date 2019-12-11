@@ -160,7 +160,7 @@ function doLogin(creationUsername, creationPass) {
 
 				// Go to contacts.html
 				console.log("Redirecting...");
-				window.location.replace(urlBase + "/landing.html");
+				window.location.replace(urlBase + "/landing2.html");
 
 			}
 		}
