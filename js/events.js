@@ -140,11 +140,11 @@ function createEvent(args, user_id) {
 }
 
 function signOut() {
-  // Redirect to login page
-  window.location.replace(urlBase);
 	// Clear cookies by forcing expiration
 	document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
 	document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
 
+  // Redirect to login page
+  window.location.replace(urlBase);
 
 }
