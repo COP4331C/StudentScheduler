@@ -91,6 +91,8 @@ function task(id, name, building, tasktime, taskdate, notes) {
 function course(id, courseName, mon, tue, wed, thu, fri, startTime, endTime, location) {
 	var meetString = "";
 	var locationSplit = [];
+	var startTimeSplit = [];
+	var endTimeSplit = [];
 	
 	// general properties
 	this.id = id;
@@ -116,9 +118,14 @@ function course(id, courseName, mon, tue, wed, thu, fri, startTime, endTime, loc
 	if (fri)
 		meetString = meetString + "F ";
 	
+	meetString = meetString.substring(0, meetString.length - 1);
 	this.meetPattern = meetString;
 	this.startTime = convertTime(startTime);
 	this.endTime = convertTime(endTime);
+	
+	startTimeSplit = startTime.split(":");
+	endTimeSplit = endTime.split(":");
+	this.meetLength = (parseInt(endTimeSplit[0]) * 60 + parseInt(endTimeSplit[1])) - (parseInt(startTimeSplit[0]) * 60 + parseInt(endTimeSplit[1]));
 	
 	locationSplit = location.split(" ");
 	
@@ -169,6 +176,24 @@ function getItemsForHome(someDay) {
     // populate "items" array with tasks  and classes occuring on "someDay"
 
     return items;
+}
+
+function getCourseById(id) {
+	var singleCourse;
+	
+	// retrieve the single course with matching ID
+	singleCourse = new course();
+	
+	return singleCourse;
+}
+
+function getTaskById(id) {
+	var singleTask;
+	
+	// retrieve the single task with matching ID
+	singleTask = new task();
+	
+	return singleTask;
 }
 
 
@@ -494,6 +519,48 @@ $(document).ready(function() {
 	$('#weeklyCarousel').on('slid.bs.carousel', carouselSlid);
 		
 });
+
+function editClassClick(sender) {
+	var editingCourse = 
+	var patternDropdown = $('#meetPattern');
+	var meetTimeDropdown = $('#meetTime');
+	var meetLengthDropdown = $('#meetLength');
+	var buildingDropdown = $('#building');
+	
+	$('#classForm').data("editing") = true;
+	$('#courseTitle').value = editingCourse.courseName;
+	$('#room').value = editingCourse.room;
+	
+	for (var i = 0; i < patternDropdown.options.length; i++) {
+		if (patternDropdown.options[i].text == editingCourse.meetPattern) {
+			patternDropdown.selectedIndex = i;
+			break;
+		}
+	}
+	
+	for (var i = 0; i < meetTimeDropdown.options.length; i++) {
+		if (meetTimeDropdown.options[i].text == editingCourse.startTime) {
+			meetTimeDropdown.selectedIndex = i;
+			break;
+		}
+	}
+	
+	if (editingCourse.meetLength == 50)
+		meetLengthDropdown.selectedIndex = 0;
+	else if (editingCourse.meetLength == 75)
+		meetLengthDropdown.selectedIndex = 1;
+	else if (editingCourse.meetLength == 110)
+		meetLengthDropdown.selectedIndex = 2;
+	else if (editingCourse.meetLength == 170)
+		meetLengthDropdown.selectedIndex = 3;
+	
+	for (var i = 0; i < buildingDropdown.options.length; i++) {
+		if (buildingDropdown.options[i].text == editingCourse.building) {
+			buildingDropdown.selectedIndex = i;
+			break;
+		}
+	}
+}
 /*
 
 // ------------------------------------------------------------------- chika
