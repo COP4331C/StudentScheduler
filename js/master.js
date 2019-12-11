@@ -139,7 +139,7 @@ function addNewTask(task) {
 	
 }
 */
-function addNewCourse(course) {
+function addNewCourse(course) {	
 
 }
 
@@ -170,7 +170,7 @@ function getItemsForHome(someDay) {
 
     return items;
 }
-under DB fetch functions
+
 
 // 							CLASSES TAB HTML CONTROL
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
