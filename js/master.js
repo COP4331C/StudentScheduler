@@ -91,6 +91,8 @@ function task(id, name, building, tasktime, taskdate, notes) {
 function course(id, courseName, mon, tue, wed, thu, fri, startTime, endTime, location) {
 	var meetString = "";
 	var locationSplit = [];
+	var startTimeSplit = [];
+	var endTimeSplit = [];
 	
 	// general properties
 	this.id = id;
@@ -116,9 +118,14 @@ function course(id, courseName, mon, tue, wed, thu, fri, startTime, endTime, loc
 	if (fri)
 		meetString = meetString + "F ";
 	
+	meetString = meetString.substring(0, meetString.length - 1);
 	this.meetPattern = meetString;
 	this.startTime = convertTime(startTime);
 	this.endTime = convertTime(endTime);
+	
+	startTimeSplit = startTime.split(":");
+	endTimeSplit = endTime.split(":");
+	this.meetLength = (parseInt(endTimeSplit[0]) * 60 + parseInt(endTimeSplit[1])) - (parseInt(startTimeSplit[0]) * 60 + parseInt(endTimeSplit[1]));
 	
 	locationSplit = location.split(" ");
 	
@@ -139,7 +146,11 @@ function addNewTask(task) {
 	
 }
 */
+<<<<<<< HEAD
 function addNewCourse(course) {
+=======
+function addNewCourse(course) {	
+>>>>>>> 10db51ab9957910db1938fd827d339c501584ade
 
 }
 
@@ -166,12 +177,38 @@ function getCourses() {
 function getItemsForHome(someDay) {
     var items = [];
 
+<<<<<<< HEAD
     // populate "tasks" array with tasks occuring on "someDay"
     // populate "courses" with clasees that are being held on "someDay"
 
     return items;
 }
 under DB fetch functions
+=======
+    // populate "items" array with tasks  and classes occuring on "someDay"
+
+    return items;
+}
+
+function getCourseById(id) {
+	var singleCourse;
+	
+	// retrieve the single course with matching ID
+	singleCourse = new course();
+	
+	return singleCourse;
+}
+
+function getTaskById(id) {
+	var singleTask;
+	
+	// retrieve the single task with matching ID
+	singleTask = new task();
+	
+	return singleTask;
+}
+
+>>>>>>> 10db51ab9957910db1938fd827d339c501584ade
 
 // 							CLASSES TAB HTML CONTROL
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -459,6 +496,7 @@ function buildWeekHTML(someWeek, targetElement) {
 
 // 								WEBPAGE ONLOAD
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 
 $(document).ready(function() {
     // get first day of current week
@@ -487,14 +525,82 @@ $(document).ready(function() {
     $('#weeklyCarousel').on('slid.bs.carousel', carouselSlid);
 
 });
+=======
+>>>>>>> 10db51ab9957910db1938fd827d339c501584ade
 
-	
-// 								HTML EVENTS
+$(document).ready(function() {
+    // get first day of current week
+    todaysDate = new Date();
+    tomorrowsDate = new Date(todaysDate.getTime());
+    tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
+    shownWeek = new Date();
+    shownWeek.setDate(shownWeek.getDate() - ((shownWeek.getDay() == 0) ? 6 : shownWeek.getDay() - 1));
+    lastWeek = new Date(shownWeek.getTime());
+    nextWeek = new Date(shownWeek.getTime());
+    lastWeek.setDate(lastWeek.getDate() - 7);
+    nextWeek.setDate(nextWeek.getDate() + 7);
+
+    buildCourseHTML();
+
+    // set up initial carousel weeks
+    buildWeekHTML(shownWeek, "#week2slide");
+    buildWeekHTML(lastWeek, "#week1slide");
+    buildWeekHTML(nextWeek, "#week3slide");
+    $("#shownWeekHeader").text("WEEK OF " + formatDate1(shownWeek));
+
+
+//                                                                                         HTML EVENTS
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// rebuild neighboring week when carousel slides
-	$('#weeklyCarousel').on('slid.bs.carousel', carouselSlid);
-		
+    // rebuild neighboring week when carousel slides
+    $('#weeklyCarousel').on('slid.bs.carousel', carouselSlid);
+
 });
+<<<<<<< HEAD
+=======
+
+function editClassClick(sender) {
+	var editingCourse = getCourseById(parseInt(sender.id.split(" ")[0]));
+	var patternDropdown = $('#meetPattern');
+	var meetTimeDropdown = $('#meetTime');
+	var meetLengthDropdown = $('#meetLength');
+	var buildingDropdown = $('#building');
+	
+	$('#classForm').data("editing") = true;
+	$('#classForm').data("courseID") = editingCourse.id;
+	$('#courseTitle').value = editingCourse.courseName;
+	$('#room').value = editingCourse.room;
+	
+	for (var i = 0; i < patternDropdown.options.length; i++) {
+		if (patternDropdown.options[i].text == editingCourse.meetPattern) {
+			patternDropdown.selectedIndex = i;
+			break;
+		}
+	}
+	
+	for (var i = 0; i < meetTimeDropdown.options.length; i++) {
+		if (meetTimeDropdown.options[i].text == editingCourse.startTime) {
+			meetTimeDropdown.selectedIndex = i;
+			break;
+		}
+	}
+	
+	if (editingCourse.meetLength == 50)
+		meetLengthDropdown.selectedIndex = 0;
+	else if (editingCourse.meetLength == 75)
+		meetLengthDropdown.selectedIndex = 1;
+	else if (editingCourse.meetLength == 110)
+		meetLengthDropdown.selectedIndex = 2;
+	else if (editingCourse.meetLength == 170)
+		meetLengthDropdown.selectedIndex = 3;
+	
+	for (var i = 0; i < buildingDropdown.options.length; i++) {
+		if (buildingDropdown.options[i].text == editingCourse.building) {
+			buildingDropdown.selectedIndex = i;
+			break;
+		}
+	}
+}
+>>>>>>> 10db51ab9957910db1938fd827d339c501584ade
 /*
 
 // ------------------------------------------------------------------- chika
@@ -556,7 +662,11 @@ function buildHomeHTML(items) {
 										<div class="map-responsive">
 											<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.544417952166!2d-81.22985002940365!3d28.57147272627009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749808082!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 										</div>
+<<<<<<< HEAD
 									</div>										
+=======
+									</div>				
+>>>>>>> 10db51ab9957910db1938fd827d339c501584ade
 									<div id="eventbike` + item.id + `" class="tab-pane container">
 										<div class="map-responsive">
 											<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d56061.54538564143!2d-81.2473803470514!3d28.57436915472536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e1!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749587312!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -675,7 +785,11 @@ function buildHomeHTML(items) {
 										<div class="map-responsive">
 											<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d28031.544417952166!2d-81.22985002940365!3d28.57147272627009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749808082!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 										</div>
+<<<<<<< HEAD
 									</div>										
+=======
+									</div>				
+>>>>>>> 10db51ab9957910db1938fd827d339c501584ade
 									<div id="eventbike1" class="tab-pane container">
 										<div class="map-responsive">
 											<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d56061.54538564143!2d-81.2473803470514!3d28.57436915472536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e1!4m5!1s0x88e766502df12e2b%3A0x73b74c97de0b04af!2sLockheed%20Martin%2C%20100%20Global%20Innovation%20Cir%2C%20Orlando%2C%20FL%2032825-5003%2C%20USA!3m2!1d28.5405469!2d-81.2151457!4m5!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida%2C%204000%20Central%20Florida%20Blvd%2C%20Orlando%2C%20FL%2032816!3m2!1d28.6024274!2d-81.2000599!5e0!3m2!1sen!2sus!4v1575749587312!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>

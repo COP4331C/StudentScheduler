@@ -3,7 +3,7 @@
 	include("session.php");
 	session_start();
      $inData = json_decode(file_get_contents('php://input'), true);
-	$sql = "select * from tasks where userid = '{$_SESSION['user_id']}' ";
+	$sql = "select * from tasks where userid = '{$_SESSION['user_id']}' order by taskdate asc, tasktime asc ";
 	$result = mysqli_query($db,$sql);
 	$json_array = array();
 	if($result->num_rows > 0)

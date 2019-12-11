@@ -3,7 +3,7 @@
 	include("session.php");
 	$inData = json_decode(file_get_contents('php://input'), true);
 	
-	$sql = "update tasks set taskname = '{$inData['taskname']}',  due = '{$inData['due']}', notes = '{$inData['notes']}', completed = '{$inData['completed']}', cat = '{$inData['cat']}', building = '{$inData['building']}' where id = '{$inData['id']}' ";
+	$sql = "update tasks set name = '{$inData['name']}',  building = '{$inData['building']}', tasktime = '{$inData['tasktime']}', taskdate = '{$inData['taskdate']}', notes = '{$inData['notes']}' where id = '{$inData['id']}' ";
 	$sql2 = "select * from tasks where id = '{$inData['id']}'";
 	$result = mysqli_query($db,$sql);
 	$result2 = mysqli_query($db,$sql2);
