@@ -513,7 +513,7 @@ $(document).ready(function() {
 });
 
 function editClassClick(sender) {
-	var editingCourse = getCourseById(sender.id.split(" ")[0]);
+	var editingCourse = getCourseById(parseInt(sender.id.split(" ")[0]));
 	var patternDropdown = $('#meetPattern');
 	var meetTimeDropdown = $('#meetTime');
 	var meetLengthDropdown = $('#meetLength');
