@@ -199,6 +199,67 @@ function updateEvents(taskname, building, starttime, endtime, mon, tue, wen, thr
   
 }
 
+
+function deleteEvents(did) {
+	console.log(did);
+
+	
+	var jsonPayload = JSON.stringify({id:did});
+	console.log(jsonPayload);
+
+	var url = '/StudentScheduler/api/deleteEvent2.0.php';
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+
+	xhr.send(jsonPayload);
+
+		
+
+	
+  
+}
+
+
+function viewEvents(id) {
+	console.log(id);
+
+	
+	var jsonPayload = JSON.stringify({id:id});
+	console.log(jsonPayload);
+
+	var url = '/StudentScheduler/api/vieweventinfo.php';
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+
+	try
+	{
+		xhr.send(jsonPayload);
+		console.log("dwdwdw");
+		
+		xhr.onreadystatechange = function()
+		{
+                        var jsonObject = JSON.parse(xhr.responseText);
+			
+			console.log(jsonObject);
+			document.getElementById("dID").value = jsonObject.fri;
+		}	
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+	
+  
+}
+
+
+
 /*
 function updateEvents(taskname, building, starttime, endtime, mon, tue, wen, thr, fri, sat, sun, courseID) {
 

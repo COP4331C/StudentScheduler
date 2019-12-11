@@ -85,6 +85,15 @@
 							<button class="btn btn-secondary w-100 font-weight-bold" data-toggle="modal" data-target="#editClassForm">Edit Event</button>
 						</div>
 
+
+						<div class="col text-center">
+							<button class="btn btn-secondary w-100 font-weight-bold" data-toggle="modal" data-target="#deleteClassForm">Delete Event</button>
+						</div>
+
+						<div class="col text-center">
+							<button class="btn btn-secondary w-100 font-weight-bold" data-toggle="modal" data-target="#viewClassForm">View Event</button>
+						</div>
+
 						<div class="col text-center" onclick="signOut();">
 							<button class="btn btn-danger w-100 font-weight-bold" >School's Out!</button>
 						</div>
@@ -285,9 +294,122 @@
 				</div>
 
 
+						<!-- Pop-up class info editor -->
+					<div class="modal fade" id="deleteClassForm">
+						<div class="modal-dialog" id="classModal">
+							<div class="modal-content">
+								<div class="modal-header text-center">
+									<h4 class="modal-title w-100">Class Info</h4>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+
+
+
+
+								<div class="modal-body mx-2">
+									<div class="form-row">
+										<div class="form-group col">
+											<label for="deleteID">id</label>
+											<input type="text" id="deleteID" class="form-control">
+										</div>
+
+									
+									</div>
+
+
+
+
+
+
+
+									<div class="form-row">
+
+
+
+
+
+
+
+
+								</div>
+
+																</div>
+
+								<div class="modal-footer d-flex justify-content-center" onclick="deleteEvents(deleteID.value);">
+									<button class="btn btn-dark w-25">Save</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
 					
-					
-		
+							<!-- Pop-up class info editor -->
+					<div class="modal fade" id="viewClassForm">
+						<div class="modal-dialog" id="classModal">
+							<div class="modal-content">
+								<div class="modal-header text-center">
+									<h4 class="modal-title w-100">Class Info</h4>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+
+
+
+
+								<div class="modal-body mx-2">
+									<div class="form-row">
+										<div class="form-group col">
+											<label for="vtaskname">id</label>
+											<input type="text" id="vtaskname" class="form-control">
+										</div>
+										<div class="form-group col">
+											<label for="vstarttime">id</label>
+											<input type="time" id="vstarttime" class="form-control">
+										</div>
+										<div class="form-group col">
+											<label for="vendtime">id</label>
+											<input type="time" id="vendtime" class="form-control">
+										</div>
+										<div class="form-group col">
+											<label for="nvotes">id</label>
+											<input type="text" id="vnotes" class="form-control">
+										</div>
+
+									
+									</div>
+
+
+
+
+
+
+
+									<div class="form-row">
+
+
+
+
+
+
+
+
+								</div>
+
+																</div>
+
+								<div class="modal-footer d-flex justify-content-center" onclick="viewEvents(dID.vtaskname);">
+									<button class="btn btn-dark w-25">Save</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
 					<!-- Pop-up class info editor -->
 					<div class="modal fade" id="classForm">
 						<div class="modal-dialog" id="classModal">
@@ -682,6 +804,11 @@
 					</div>
 				</div>
 			</div>
+
+		
+
+		
+		
 		</main>
 
 		<!-- Bottom navbar -->

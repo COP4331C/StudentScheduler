@@ -4,7 +4,7 @@
 	include("session.php");
 	session_start();
      $inData = json_decode(file_get_contents('php://input'), true);
-	$sql = "select * from events where id = '{$inData['id']}' ";
+	$sql = "select * from events where userid = '{$_SESSION['user_id']}' and taskname ='{$inData['taskname']}' ";
 	$result = mysqli_query($db,$sql);
 	$json_array = array();
 	if($result->num_rows > 0)
