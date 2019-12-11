@@ -61,7 +61,7 @@
 	 	$sun = '0';
 	}
 
-	$sql = "update events set startdate = '{$inData['startdate']}', enddate = '{$inData['enddate']}', starttime = '{$inData['starttime']}', endtime = '{$inData['endtime']}', mon = '{$mon}', tues = '{$tue}', wen = '{$wen}', thr = '{$thr}', fri = '{$fri}', sat = '{$sat}', sun = '{$sun}', building = '{$inData['building']}' where id = '$inData['id']' ";
+	$sql = "update events set startdate = '{$inData['startdate']}', enddate = '{$inData['enddate']}', starttime = '{$inData['starttime']}', endtime = '{$inData['endtime']}', mon = '{$mon}', tues = '{$tue}', wen = '{$wen}', thr = '{$thr}', fri = '{$fri}', sat = '{$sat}', sun = '{$sun}', building = '{$inData['building']}' where id = '{$inData['id']}' ";
       echo($sql);
 	$result = mysqli_query($db,$sql);
 
