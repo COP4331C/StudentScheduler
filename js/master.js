@@ -520,6 +520,7 @@ function editClassClick(sender) {
 	var buildingDropdown = $('#building');
 	
 	$('#classForm').data("editing") = true;
+	$('#classForm').data("courseID") = editingCourse.id;
 	$('#courseTitle').value = editingCourse.courseName;
 	$('#room').value = editingCourse.room;
 	
