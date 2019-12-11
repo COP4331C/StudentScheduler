@@ -166,8 +166,7 @@ function getCourses() {
 function getItemsForHome(someDay) {
     var items = [];
 
-    // populate "tasks" array with tasks occuring on "someDay"
-    // populate "courses" with clasees that are being held on "someDay"
+    // populate "items" array with tasks  and classes occuring on "someDay"
 
     return items;
 }
