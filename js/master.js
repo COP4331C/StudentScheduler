@@ -1,11 +1,11 @@
-// 																						GLOBAL VARIABLES
+// 							GLOBAL VARIABLES
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 var week1html, week2html, week3html;
 var shownWeek, nextWeek, lastWeek;
 var carouselPosition = "#week2slide";
 
 
-// 																						BASIC UTILITY FUNCTIONS
+// 							BASIC UTILITY FUNCTIONS
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // return string of date in mm/dd format
@@ -46,7 +46,7 @@ function convertTime(dbTime) {
 }
 
 
-// 																						DB OBJECT CONSTRUCTORS
+// 							DB OBJECT CONSTRUCTORS
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // task object constructor
@@ -103,7 +103,7 @@ function course(id, courseName, mon, tue, wed, thu, fri, startTime, endTime, loc
 }
 
 
-// 																						DB FETCH FUNCTIONS
+// 							DB FETCH FUNCTIONS
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function getTasksForWeek(someWeek) {
@@ -123,7 +123,7 @@ function getCourses() {
 }
 
 
-// 																						CLASSES TAB HTML CONTROL
+// 							CLASSES TAB HTML CONTROL
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function buildCourseHTML() {
@@ -162,7 +162,7 @@ function buildCourseHTML() {
 }
 
 
-// 																						TO DO TAB HTML CONTROL
+// 							TO DO TAB HTML CONTROL
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // update carousel when moved
@@ -407,7 +407,7 @@ function buildWeekHTML(someWeek, targetElement) {
 }
 
 
-// 																						WEBPAGE ONLOAD
+// 								WEBPAGE ONLOAD
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $(document).ready(function() {	
 	// get first day of current week
@@ -427,7 +427,7 @@ $(document).ready(function() {
 	$("#shownWeekHeader").text("WEEK OF " + formatDate1(shownWeek));
 
 	
-// 																						HTML EVENTS
+// 								HTML EVENTS
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// rebuild neighboring week when carousel slides
 	$('#weeklyCarousel').on('slid.bs.carousel', carouselSlid);
