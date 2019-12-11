@@ -148,6 +148,23 @@ function addNewCourse(course) {
 
 }
 
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0)
+        {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
 
 // 							DB FETCH FUNCTIONS
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -161,11 +178,55 @@ function getTasksForWeek(someWeek) {
 }
 
 function getCourses() {
-	var courses = [];
-	
-	// populate "courses" array with "course" objects representing the classes in the database
+var events = [];
+var xhr = new XMLHttpRequest();
 
-	return courses;
+  var userID = getCookie("id");
+  if (userID == "")
+  {
+    console.log("Not signed in!");
+  }
+
+  var jsonPayload = JSON.stringify({user_id:userID});
+  //var url = urlBase + '/api/getEvents.' + extension;
+  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+  try {
+    xhr.send(jsonPayload);
+
+    xhr.onreadystatechange = function()
+    {
+      if (this.readyState == 4 && this.status == 200){
+        var jsonObject = JSON.parse(xhr.responseText);
+
+        // error checking?
+        if(jsonObject.length <= 0)
+        {
+          console.log("No events found");
+          return;
+        }
+
+        var numEvents = jsonObject.length;
+        var args = [];
+
+        for (var i = 0; i < numEvents; i++) {
+          args[0] = jsonObject[i].id;
+          args[1] = jsonObject[i].taskname;
+          args[2] = jsonObject[i].building;
+          args[3] = jsonObject[i].startdate;
+          args[4] = jsonObject[i].enddate;
+          args[5] = dayParse(jsonObject, i);
+          args[6] = jsonObject[i].starttime;
+          args[7] = jsonObject[i].endtime;
+          events.push(new event(args));
+        }
+      }
+    }
+  }
+	catch (err) {
+	}
+
+	return events;
 }
 
 function getItemsForHome(someDay) {
