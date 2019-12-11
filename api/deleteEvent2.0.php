@@ -2,6 +2,7 @@
 	include("config.php");
 	include("session.php");
 	session_start();
+	$inData = json_decode(file_get_contents('php://input'), true);
 
      $sql = "delete from events where id = '{$inData['id']}' ";
      $result = mysqli_query($db,$sql);
