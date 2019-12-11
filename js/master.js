@@ -1,3 +1,7 @@
+var urlBase = 'http://ec2-3-133-147-230.us-east-2.compute.amazonaws.com/StudentScheduler';
+var extension = "php";
+
+
 // 							GLOBAL VARIABLES
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 var week1html, week2html, week3html;
