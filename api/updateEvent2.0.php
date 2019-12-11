@@ -62,7 +62,32 @@
 	}
 
 	$sql = "update events set startdate = '{$inData['startdate']}', enddate = '{$inData['enddate']}', starttime = '{$inData['starttime']}', endtime = '{$inData['endtime']}', mon = '{$mon}', tues = '{$tue}', wen = '{$wen}', thr = '{$thr}', fri = '{$fri}', sat = '{$sat}', sun = '{$sun}', building = '{$inData['building']}' where id = '{$inData['id']}' ";
-      echo($sql);
+	$sql2 = "select * from events where id = '{$inData['id']}'
 	$result = mysqli_query($db,$sql);
+	$result2 = mysqli_query($db,$sql2);
+	if($result === TRUE)
+	{
+     		if($result_cnt = mysqli_num_rows($result2) != 0)
+     		{
+          		$row = $result2->fetch_assoc();
+          		$message = json_encode($row);
+          		header('Content-type: application/json');
+          		echo $message;
+     		}
+     		else
+     		{
+          		$arr["error"] = 'error: cant find task';
+          		$message = json_encode($arr);
+          		header('Content-type: application/json');
+          		echo $message;
+     		}
+	}
+	else
+	{
+     		$arr["error"] = 'error: task did not get updated';
+     		$message = json_encode($arr);
+     		header('Content-type: application/json');
+     		echo $message;
+	}
 
 ?>
