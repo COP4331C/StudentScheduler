@@ -60,7 +60,7 @@
 	 	$sun = '0';
 	}
 
-	$sql = "update events set taskname = '{$inData['taskname']}' startdate = '{$inData['startdate']}', enddate = '{$inData['enddate']}', starttime = '{$inData['starttime']}', endtime = '{$inData['endtime']}', mon = '{$mon}', tues = '{$tue}', wen = '{$wen}', thr = '{$thr}', fri = '{$fri}', sat = '{$sat}', sun = '{$sun}', building = '{$inData['building']}' where id = '{$inData['id']}' ";
+	$sql = "update events set taskname = '{$inData['taskname']}', startdate = '{$inData['startdate']}', enddate = '{$inData['enddate']}', starttime = '{$inData['starttime']}', endtime = '{$inData['endtime']}', mon = '{$mon}', tues = '{$tue}', wen = '{$wen}', thr = '{$thr}', fri = '{$fri}', sat = '{$sat}', sun = '{$sun}', building = '{$inData['building']}' where id = '{$inData['id']}' ";
 	$sql2 = "select * from events where id = '{$inData['id']}'";
 	$result = mysqli_query($db,$sql);
 	$result2 = mysqli_query($db,$sql2);
