@@ -57,8 +57,9 @@ function task(id, details, notes, startDate, endDate, dayOfWeek, startTime, endT
 	var endSplitInt = [];
 	var i;
 	
-	this.startTime = convertTime(startTime);
-	this.endTime = convertTime(endTime);
+	// general properties
+	this.startTimeDB = startTime;
+	this.endTimeDB = endTime;
 	this.id = id;
 	this.details = details;
 	this.notes = notes;
@@ -68,6 +69,10 @@ function task(id, details, notes, startDate, endDate, dayOfWeek, startTime, endT
 	this.location = location;
 	this.course = course;
 	this.taskType = taskType;
+	
+	// frontend-specific properties
+	this.startTime = convertTime(startTime);
+	this.endTime = convertTime(endTime);
 	this.startMinute = startSplit[0] * 60 + startSplit[1];
 	this.endMinute = endSplit[0] * 60 + endSplit[1];
 }
@@ -77,9 +82,19 @@ function course(id, courseName, mon, tue, wed, thu, fri, startTime, endTime, loc
 	var meetString = "";
 	var locationSplit = [];
 	
+	// general properties
 	this.id = id;
 	this.courseName = courseName;
+	this.startTimeDB = startTime;
+	this.endTimeDB = endTime;
+	this.location = location;
+	this.mon = mon;
+	this.tue = tue;
+	this.wed = wed;
+	this.thu = thu;
+	this.fri = fri;
 	
+	// frontend-specific properties
 	if (mon)
 		meetString = meetString + "M ";
 	if (tue)
