@@ -1,4 +1,4 @@
-var urlBase = 'http://ec2-3-133-147-230.us-east-2.compute.amazonaws.com/StudentScheduler';
+var urlBase = 'http://www.ucanfinish.com/StudentScheduler';
 var extension = "php";
 
 $(function() {
