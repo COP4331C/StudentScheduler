@@ -15,7 +15,7 @@
 	}
      else
      {
-               $arr['none'] = 'There are no task today yippie';
+               $arr['none'] = 'There are no task';
                $message = json_encode($arr);
           	header('Content-type: application/json');
           	echo $message;
