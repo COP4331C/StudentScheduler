@@ -130,15 +130,13 @@ function course(id, courseName, mon, tue, wed, thu, fri, startTime, endTime, loc
 
 // 							DB PUSH FUNCTIONS
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-/*
 function addNewTask(task) {
 	console.log("uo whjidfjwodj");
 	//console.log(task.name);
 	var jsonPayload = JSON.stringify({name:task.name}, )
 	
 }
-*/
+
 function addNewCourse(course) {
 
 }

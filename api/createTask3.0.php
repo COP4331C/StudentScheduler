@@ -5,12 +5,14 @@
         include("session.php");
         session_start();
 
-$sql = "insert into tasks (taskname, due, completed, userid, building, notes, cat) values ('{$inData['taskname']}', '{$inData['due']}', '{$inData['completed']}', '{$inData['userid']}', '{$inData['building']}', '{$inData['notes']}', '{$inData['cat']}')";
+$sql = "insert into tasks (name, building, tasktime, taskdate, notes) values ('{$inData['name']}', '{$inData['building']}', '{$inData['tasktime']}', '{$inData['taskdate']}', '{$inData['notes']}')";
 
       $result = mysqli_query($db,$sql);
 #$sql2 = "select id from events where userid = '{$inData['userid']}' and taskname = '{$inData['taskname']}' and startdate =  '{$inData['startdate']}' and enddate = '{$inData['enddate']}' and mon= '{$mon}' and tues = '{$tue}' and wen= '{$wen}'and thr = '{$thr}'and fri= '{$fri}' and sat = '{$sat}' and sun = '{$sun}' and starttime = '{$inData['starttime']}' and endtime = '{$inData['endtime']}'";
-$sql2 = "select * from tasks where userid = '{$inData['userid']}' and taskname = '{$inData['taskname']}' and due =  '{$inData['due']}' and completed = '{$inData['completed']}' and building = '{$inData['building']}' and notes = '{$inData['notes']}' and cat = '{$inData['cat']}' ";
+	
+	//$sql2 = "select * from tasks where userid = '{$inData['userid']}' and name = '{$inData['name']}' and building = '{$inData['building']}' and tasktime = '{$inData['tasktime']}' and taskdate = '{$inData['taskdate']}' and notes = {$inData['notes']}";
 
+	/*
 $result2 = mysqli_query($db,$sql2);
 
 if($result === TRUE)
@@ -37,8 +39,8 @@ else
      $arr["error"] = 'error: task did not get added';
      $message = json_encode($arr);
      header('Content-type: application/json');
-     echo $message;
+     echo $sql;
 }
 
-
+	 */
 ?>

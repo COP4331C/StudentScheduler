@@ -19,7 +19,7 @@
 				header('Content-type: application/json');
 				echo $message;
 
-
+				echo $sql;
 	}
 
 ?>

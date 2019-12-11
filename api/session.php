@@ -12,6 +12,7 @@
 
 	if (!isset($_SESSION['login_user']))
 	{
+		echo("Riperoni");
 		header("location:index.html");
 		die();
 	}

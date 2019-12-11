@@ -24,7 +24,7 @@ if($count == 1) {
 
 
       }else {
-         echo('yo yo yo');
+         echo("hello darkness {$myusername}");
          $error = "Your Login Name or Password is invalid";
 
       }

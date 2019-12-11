@@ -107,6 +107,7 @@ if($result === TRUE)
 }
 else
 {
+     echo $sql;
      $arr["error"] = 'error: task did not get added';
      $message = json_encode($arr);
      header('Content-type: application/json');

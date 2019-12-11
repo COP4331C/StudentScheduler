@@ -68,7 +68,8 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-		<script src="js/todo.js"></script>
+		<script src="js/tasks.js"></script>
+		<script src="js/master.js"></script>
 		<script src="js/events.js"></script>
 
 		<main class="container-fluid" style="padding-bottom:60px;">
@@ -481,43 +482,43 @@
 							<div class="modal-body mx-2">
 								<div class="form-row">
 									<div class="form-group col">
-										<label for="taskTitle">Task Name</label>
-										<input type="text" id="taskTitle" class="form-control">
+										<label for="nname">Task Name</label>
+										<input type="text" id="nname" class="form-control">
 									</div>
 								</div>
 								
 								<div class="form-row">
 									<div class="form-group col">
-										<label for="taskLocation">Location</label>
-										<input type="text" id="taskLocation" class="form-control">
+										<label for="bbuilding">Location</label>
+										<input type="text" id="bbuilding" class="form-control">
+									</div>
+								</div>
+
+
+								<div class="form-row">
+									<div class="form-group col">
+										<label for="nnotes">notes</label>
+										<input type="text" id="nnotes" class="form-control">
+									</div>
+								</div>
+
+
+
+								<div class="form-row">
+									<div class="form-group col">
+										<label for="taskdate">Task Date</label>
+										<input type="date" id="taskdate" class="form-control">
+									</div>
+									<div class="form-group col">
+										<label for="tasktime">Task Time</label>
+										<input type="time" id="tasktime" class="form-control">
 									</div>
 								</div>
 								
-								<div class="form-row">
-									<div class="form-group col">
-										<label for="taskStartDate">Start Date</label>
-										<input type="date" id="taskStartDate" class="form-control">
-									</div>
-									<div class="form-group col">
-										<label for="taskEndDate">End Date</label>
-										<input type="date" id="taskEndDate" class="form-control">
-									</div>
-								</div>
-								
-								<div class="form-row">
-									<div class="form-group col">
-										<label for="taskStartTime">Start Time</label>
-										<input type="time" id="taskStartTime" class="form-control">
-									</div>
-									<div class="form-group col">
-										<label for="taskEndTime">End Time</label>
-										<input type="time" id="taskEndTime" class="form-control">
-									</div>
-								</div>
 							</div>
 									
 							<div class="modal-footer d-flex justify-content-center">
-								<button class="btn btn-dark w-25" onclick="addNewTask">Save</button>
+								<button class="btn btn-dark w-25" onclick="addNewTask(nname.value, bbuilding.value, taskdate.value, tasktime.value, nnotes.value)">Save</button>
 							</div>
 						</div>
 					</div>
