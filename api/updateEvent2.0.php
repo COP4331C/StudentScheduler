@@ -67,7 +67,7 @@
 	$result2 = mysqli_query($db,$sql2);
 	if($result === TRUE)
 	{
-     		if($result_cnt = mysqli_num_rows($result2) = 1)
+     		if($result_cnt = mysqli_num_rows($result2) == 1)
      		{
           		$row = $result2->fetch_assoc();
           		$message = json_encode($row);
