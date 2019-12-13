@@ -149,7 +149,7 @@ function updateEvents(taskname, building, starttime, endtime, mon, tue, wen, thr
 	console.log(sun);
 
 	
-	var jsonPayload = JSON.stringify({taskname:taskname, building:building, starttime:starttime, endtime, mon, tue, wen, thr, fri, sat, sun, id:id});
+	var jsonPayload = JSON.stringify({taskname:taskname, building:building, starttime:starttime, endtime:endtime, mon:mon, tue:tue, wen:wen, thr:thr, fri:fri, sat:sat, sun:sun});
 	console.log(jsonPayload);
 
 	var url = '/StudentScheduler/api/updateEvent2.0.php';
@@ -204,7 +204,7 @@ function deleteEvents(did) {
 	console.log(did);
 
 	
-	var jsonPayload = JSON.stringify({id:did});
+	var jsonPayload = JSON.stringify({taskname:did});
 	console.log(jsonPayload);
 
 	var url = '/StudentScheduler/api/deleteEvent2.0.php';
@@ -227,7 +227,7 @@ function viewEvents(id) {
 	console.log(id);
 
 	
-	var jsonPayload = JSON.stringify({id:id});
+	var jsonPayload = JSON.stringify({taskname:id});
 	console.log(jsonPayload);
 
 	var url = '/StudentScheduler/api/vieweventinfo.php';
@@ -247,7 +247,10 @@ function viewEvents(id) {
                         var jsonObject = JSON.parse(xhr.responseText);
 			
 			console.log(jsonObject);
-			document.getElementById("dID").value = jsonObject.fri;
+			document.getElementById("vtaskname").value = jsonObject.taskname;
+			document.getElementById("vstarttime").value = jsonObject.starttime;
+			document.getElementById("vendtime").value = jsonObject.endtime;
+			document.getElementById("vbuilding").value = jsonObject.building;
 		}	
 	}
 	catch(err)

@@ -294,7 +294,6 @@
 				</div>
 
 
-<<<<<<< HEAD
 						<!-- Pop-up class info editor -->
 					<div class="modal fade" id="deleteClassForm">
 						<div class="modal-dialog" id="classModal">
@@ -365,20 +364,20 @@
 								<div class="modal-body mx-2">
 									<div class="form-row">
 										<div class="form-group col">
-											<label for="vtaskname">id</label>
+											<label for="vtaskname">event name</label>
 											<input type="text" id="vtaskname" class="form-control">
 										</div>
 										<div class="form-group col">
-											<label for="vstarttime">id</label>
+											<label for="vstarttime">start time</label>
 											<input type="time" id="vstarttime" class="form-control">
 										</div>
 										<div class="form-group col">
-											<label for="vendtime">id</label>
+											<label for="vendtime">end time</label>
 											<input type="time" id="vendtime" class="form-control">
 										</div>
 										<div class="form-group col">
-											<label for="nvotes">id</label>
-											<input type="text" id="vnotes" class="form-control">
+											<label for="vbuilding">building </label>
+											<input type="text" id="vbuilding" class="form-control">
 										</div>
 
 									
@@ -411,11 +410,9 @@
 					</div>
 				</div>
 	
-=======
 
 
 
->>>>>>> 2952655b8db2a876c65127ddfb74a3c4a058ad5d
 					<!-- Pop-up class info editor -->
 					<div class="modal fade" id="classForm">
 						<div class="modal-dialog" id="classModal">
@@ -430,9 +427,15 @@
 								<div class="modal-body mx-2">
 									<div class="form-row">
 										<div class="form-group col">
-											<label for="taskname">Course Title</label>
-											<input type="text" id="taskname" class="form-control">
+											<label for="ataskname">Course Title</label>
+											<input type="text" id="ataskname" class="form-control">
 										</div>
+										<div class="form-group col">
+											<label for="abuilding">Building</label>
+											<input type="text" id="abuilding" class="form-control">
+										</div>
+
+									
 									</div>
 
 
@@ -469,28 +472,9 @@
 
 								</div>
 
-									<div class="form-row">
-										<div class="form-group col">
-											<label for="building">Building</label>
-											<select id="building" class="form-control">
-												<option selected>Choose</option>
-												<option>CB1</option>
-												<option>CB2</option>
-												<option>HEC</option>
-												<option>ENG1</option>
-												<option>ENG2</option>
-												<option>PSY</option>
-												<option>NSC</option>
-												<option>MSB</option>
-												<option>PSB</option>
-												<option>CREOL</option>
-											</select>
-										</div>
+							</div>
 
-									</div>
-								</div>
-
-								<div class="modal-footer d-flex justify-content-center" onclick="addNewEvent(taskname.value, building.value, starttime.value, endtime.value, mon.value, tue.value, wen.value, thr.value, fri.value, sat.value, sun.value);">
+								<div class="modal-footer d-flex justify-content-center" onclick="addNewEvent(ataskname.value, abuilding.value, starttime.value, endtime.value, mon.value, tue.value, wen.value, thr.value, fri.value, sat.value, sun.value);">
 									<button class="btn btn-dark w-25">Save</button>
 								</div>
 							</div>

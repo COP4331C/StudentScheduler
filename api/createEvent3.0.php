@@ -91,15 +91,16 @@ if($result === TRUE)
 {
      if($result_cnt = mysqli_num_rows($result2) != 0)
      {
+   
           $row = $result2->fetch_assoc();
           $eventid = $row["id"];
           $message = json_encode($row);
-          header('Content-type: application/json');
+
+	     header('Content-type: application/json');
           echo $message;
      }
      else
      {
-          $arr["error"] = 'ben was wrong, error: task did not get added also more or less then 1 copy';
           $message = json_encode($arr);
           header('Content-type: application/json');
           echo $message;
@@ -109,7 +110,7 @@ else
 {
      echo $sql;
      $arr["error"] = 'error: task did not get added';
-     $message = json_encode($arr);
+     //$message = json_encode($arr);
      header('Content-type: application/json');
      echo $message;
 }

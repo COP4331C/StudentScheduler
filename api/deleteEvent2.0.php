@@ -4,7 +4,7 @@
 	session_start();
 	$inData = json_decode(file_get_contents('php://input'), true);
 
-     $sql = "delete from events where id = '{$inData['id']}' ";
+     $sql = "delete from events where userid = '{$_SESSION['id']}' and taskname = '{$inData['taskname']}' ";
      $result = mysqli_query($db,$sql);
 	if($result === TRUE)
 	{
